@@ -9,3 +9,7 @@ build/
 .gradle/
 
 run/
+
+.bsp/
+project/target/
+target/
