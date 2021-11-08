@@ -22,12 +22,10 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: gradle
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
     - name: Build
-      run: bash gradlew build
+      run: sbt assembly
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: hydrogenmod
-        path: build/libs/hydrogenmod-*.jar
+        path: target/build/hydrogenmod-*.jar
