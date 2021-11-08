@@ -4,10 +4,6 @@
 *.iml
 .idea/
 
-# gradle
-build/
-.gradle/
-
 run/
 
 .bsp/
