@@ -105,7 +105,10 @@ sealed class ElectrolyzerBlock private ()
     val blockEntity = p_60463_.getBlockEntity(p_60464_) match {
       case entity: ElectrolyzerBlockEntity =>
         entity
-      case _ => throw new IllegalStateException
+      case _ =>
+        throw new IllegalStateException(
+          "Found something that was not electrolyzer."
+        )
     }
     val items = blockEntity.getItems.asScala.toList.map(_.copy())
     val waterLevel = items.dropRight(10).count { itemStack =>
@@ -138,7 +141,11 @@ sealed class ElectrolyzerBlock private ()
         .head
       val electrolysisRecipe = ElectrolysisRecipeRegistry.getAll
         .find(elem => elem.isCorrectAsInput(inputItem))
-        .getOrElse(throw new IllegalStateException)
+        .getOrElse(
+          throw new IllegalStateException(
+            "The electrolysis recipe couldn't be identified."
+          )
+        )
 
       if (
         canPlaceItems(
@@ -290,7 +297,11 @@ sealed class ElectrolyzerBlock private ()
         }
       } yield afterAddOverflowingItems
 
-      result.getOrElse(throw new IllegalStateException)
+      result.getOrElse(
+        throw new IllegalStateException(
+          "This should never happen: Failed to unwrap Option."
+        )
+      )
     }
   }
 
