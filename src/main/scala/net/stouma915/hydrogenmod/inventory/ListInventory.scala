@@ -6,23 +6,17 @@ import net.stouma915.hydrogenmod.implicits.*
 object ListInventory {
 
   def of(size: Int, items: List[ItemStack]): ListInventory = {
-    if (size % 9 != 0)
-      throw new IllegalArgumentException("Size must be a multiple of 9.")
     if (items.length != size)
       throw new IllegalArgumentException("List's size is incorrect.")
 
     new ListInventory(size, items.map(_.copy()))
   }
 
-  def create(size: Int): ListInventory = {
-    if (size % 9 != 0)
-      throw new IllegalArgumentException("Size must be a multiple of 9.")
-
+  def create(size: Int): ListInventory =
     new ListInventory(
       size,
       (1 to size).map(_ => Items.AIR.toGeneralItemStack).toList
     )
-  }
 
 }
 
@@ -64,6 +58,13 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
   def foreach[U](func: ItemStack => U): Unit = items.foreach(func)
 
   def asList: List[ItemStack] = items
+
+  def toArray: Array[ItemStack] = items.toArray
+
+  def copied: ListInventory = new ListInventory(size, items.map(_.copy()))
+
+  def updated(index: Int, newItemStack: ItemStack): ListInventory =
+    new ListInventory(size, items.updated(index, newItemStack))
 
   def addedAll(itemStacks: List[ItemStack]): ListInventory = {
     if (itemStacks.isEmpty)
