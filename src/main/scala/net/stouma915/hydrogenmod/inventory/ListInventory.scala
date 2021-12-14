@@ -22,10 +22,6 @@ object ListInventory {
 
 class ListInventory private (size: Int, items: List[ItemStack]) {
 
-  def isEmpty: Boolean = items.forall(_.isEmpty)
-
-  def nonEmpty: Boolean = !isEmpty
-
   def head: ItemStack = items.head
 
   def last: ItemStack = items.last
@@ -50,6 +46,10 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
   def exists(predicate: ItemStack => Boolean): Boolean =
     nonEmpty && items.exists(predicate)
 
+  def nonEmpty: Boolean = !isEmpty
+
+  def isEmpty: Boolean = items.forall(_.isEmpty)
+
   def find(predicate: ItemStack => Boolean): Option[ItemStack] =
     items.find(predicate)
 
@@ -57,14 +57,15 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
 
   def foreach[U](func: ItemStack => U): Unit = items.foreach(func)
 
-  def asList: List[ItemStack] = items
-
   def toArray: Array[ItemStack] = items.toArray
 
   def copied: ListInventory = new ListInventory(size, items.map(_.copy()))
 
   def updated(index: Int, newItemStack: ItemStack): ListInventory =
     new ListInventory(size, items.updated(index, newItemStack))
+
+  def added(itemStack: ItemStack): ListInventory =
+    addedAll(List(itemStack))
 
   def addedAll(itemStacks: List[ItemStack]): ListInventory = {
     if (itemStacks.isEmpty)
@@ -163,8 +164,8 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
     )
   }
 
-  def added(itemStack: ItemStack): ListInventory =
-    addedAll(List(itemStack))
+  def canAddItem(itemToPlace: ItemStack): Boolean =
+    canAddItems(List(itemToPlace))
 
   def canAddItems(itemsToPlace: List[ItemStack]): Boolean = {
     if (itemsToPlace.isEmpty || isEmpty)
@@ -259,7 +260,6 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
     false
   }
 
-  def canAddItem(itemToPlace: ItemStack): Boolean =
-    canAddItems(List(itemToPlace))
+  def asList: List[ItemStack] = items
 
 }
