@@ -113,7 +113,6 @@ sealed class ElectrolyzerBlock private ()
     }
     val listInventory =
       ListInventory.of(
-        19,
         blockEntity.getItems.asScala.toList
       )
     val itemList = listInventory.asList
@@ -155,7 +154,7 @@ sealed class ElectrolyzerBlock private ()
 
       if (
         ListInventory
-          .of(9, itemList.drop(10))
+          .of(itemList.drop(10))
           .canAddItems(
             electrolysisRecipe.getOutputItems(inputItem)
           )
@@ -183,11 +182,10 @@ sealed class ElectrolyzerBlock private ()
           }
 
           val newOutputInventory = ListInventory
-            .of(9, newInventory.asList.drop(10).map(_.copy()))
+            .of(newInventory.asList.drop(10).map(_.copy()))
             .addedAll(electrolysisRecipe.getOutputItems(inputItem))
 
           newInventory = ListInventory.of(
-            19,
             newInventory.asList
               .dropRight(9)
               .appendedAll(newOutputInventory.asList)

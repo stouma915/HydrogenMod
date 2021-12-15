@@ -5,22 +5,17 @@ import net.stouma915.hydrogenmod.implicits.*
 
 object ListInventory {
 
-  def of(size: Int, items: List[ItemStack]): ListInventory = {
-    if (items.length != size)
-      throw new IllegalArgumentException("List's size is incorrect.")
-
-    new ListInventory(size, items.map(_.copy()))
-  }
+  def of(items: List[ItemStack]): ListInventory =
+    new ListInventory(items.map(_.copy()))
 
   def create(size: Int): ListInventory =
     new ListInventory(
-      size,
       (1 to size).map(_ => Items.AIR.toGeneralItemStack).toList
     )
 
 }
 
-class ListInventory private (size: Int, items: List[ItemStack]) {
+class ListInventory private (items: List[ItemStack]) {
 
   def head: ItemStack = items.head
 
@@ -59,10 +54,10 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
 
   def toArray: Array[ItemStack] = items.toArray
 
-  def copied: ListInventory = new ListInventory(size, items.map(_.copy()))
+  def copied: ListInventory = new ListInventory(items.map(_.copy()))
 
   def updated(index: Int, newItemStack: ItemStack): ListInventory =
-    new ListInventory(size, items.updated(index, newItemStack))
+    new ListInventory(items.updated(index, newItemStack))
 
   def added(itemStack: ItemStack): ListInventory =
     addedAll(List(itemStack))
@@ -155,7 +150,6 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
     } yield afterAddOverflowingItems
 
     new ListInventory(
-      size,
       result.getOrElse(
         throw new IllegalStateException(
           "This should never happen: Failed to unwrap Option."
@@ -181,7 +175,7 @@ class ListInventory private (size: Int, items: List[ItemStack]) {
     // format: off
     if (itemsToPlace.length <= numberOfEmptySlot)
       return true
-    if (unstackableItems.length >= size)
+    if (unstackableItems.length >= items.length)
       return false
     if (unstackableItemsToPlace.length > numberOfEmptySlot)
       return false
