@@ -5,13 +5,24 @@ import net.stouma915.hydrogenmod.implicits.*
 
 object ListInventory {
 
-  def of(items: List[ItemStack]): ListInventory =
-    new ListInventory(items.map(_.copy()))
+  def create(size: Int): ListInventory = {
+    if (size <= 0)
+      throw new IllegalArgumentException("The size must be 1 or more.")
 
-  def create(size: Int): ListInventory =
-    new ListInventory(
+    ListInventory.of(
       (1 to size).map(_ => Items.AIR.toGeneralItemStack).toList
     )
+  }
+
+  def of(items: List[ItemStack]): ListInventory = {
+    val itemsToSet =
+      if (items.isEmpty)
+        List(Items.AIR.toGeneralItemStack)
+      else
+        items.map(_.copy())
+
+    new ListInventory(itemsToSet)
+  }
 
 }
 
@@ -21,16 +32,18 @@ class ListInventory private (items: List[ItemStack]) {
 
   def last: ItemStack = items.last
 
+  def length: Int = items.length
+
   def get(index: Int): ItemStack = items(index)
 
   def getOrElse[A >: ItemStack](index: Int, default: Int => A): A =
     items.applyOrElse(index, default)
 
-  def filter(predicate: ItemStack => Boolean): List[ItemStack] =
-    items.filter(predicate)
+  def filter(predicate: ItemStack => Boolean): ListInventory =
+    ListInventory.of(items.filter(predicate))
 
-  def filterNot(predicate: ItemStack => Boolean): List[ItemStack] =
-    items.filterNot(predicate)
+  def filterNot(predicate: ItemStack => Boolean): ListInventory =
+    ListInventory.of(items.filterNot(predicate))
 
   def map[B](func: ItemStack => B): List[B] =
     items.map(func)
@@ -52,15 +65,15 @@ class ListInventory private (items: List[ItemStack]) {
 
   def foreach[U](func: ItemStack => U): Unit = items.foreach(func)
 
-  def copied: ListInventory = new ListInventory(items.map(_.copy()))
+  def copied: ListInventory = ListInventory.of(items.map(_.copy()))
+
+  def count(predicate: ItemStack => Boolean): Int = items.count(predicate)
 
   def updated(index: Int, newItemStack: ItemStack): ListInventory =
-    new ListInventory(items.updated(index, newItemStack))
+    ListInventory.of(items.updated(index, newItemStack))
 
   def appended(suffix: ListInventory): ListInventory =
-    new ListInventory(items.appendedAll(suffix.asList))
-
-  def asList: List[ItemStack] = items
+    ListInventory.of(items.appendedAll(suffix.asList))
 
   def added(itemStack: ItemStack): ListInventory =
     addedAll(List(itemStack))
@@ -152,7 +165,7 @@ class ListInventory private (items: List[ItemStack]) {
       }
     } yield afterAddOverflowingItems
 
-    new ListInventory(
+    ListInventory.of(
       result.getOrElse(
         throw new IllegalStateException(
           "This should never happen: Failed to unwrap Option."
@@ -161,11 +174,13 @@ class ListInventory private (items: List[ItemStack]) {
     )
   }
 
+  def asList: List[ItemStack] = items
+
   def dropped(num: Int): ListInventory =
-    new ListInventory(items.drop(num))
+    ListInventory.of(items.drop(num))
 
   def droppedRight(num: Int): ListInventory =
-    new ListInventory(items.dropRight(num))
+    ListInventory.of(items.dropRight(num))
 
   def canAddItem(itemToPlace: ItemStack): Boolean =
     canAddItems(List(itemToPlace))
