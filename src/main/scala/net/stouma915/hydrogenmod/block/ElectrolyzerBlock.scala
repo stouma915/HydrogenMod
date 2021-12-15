@@ -115,24 +115,24 @@ sealed class ElectrolyzerBlock private ()
       ListInventory.of(
         blockEntity.getItems.asScala.toList
       )
-    val itemList = listInventory.asList
-    val waterLevel = itemList.dropRight(10).count { itemStack =>
+    val waterLevel = listInventory.droppedRight(10).count { itemStack =>
       ElectrolysisRecipeRegistry.getAll.exists(_.isCorrectAsInput(itemStack))
     }
 
-    val isBatterySet = itemList(9).getItem == BatteryItem()
-    val isInputCorrect = itemList
-      .dropRight(10)
+    val isBatterySet = listInventory.get(9).getItem == BatteryItem()
+    val isInputCorrect = listInventory
+      .droppedRight(10)
       .filterNot(elem => elem.isEmpty)
       .filterNot(elem => elem.getItem == Items.BUCKET)
       .forall(elem =>
         ElectrolysisRecipeRegistry.getAll.exists(_.isCorrectAsInput(elem))
       )
     val isSameItemInput = {
-      val droppedItems = itemList
-        .dropRight(10)
+      val droppedItems = listInventory
+        .droppedRight(10)
         .filterNot(elem => elem.isEmpty)
         .filterNot(elem => elem.getItem == Items.BUCKET)
+        .asList
 
       droppedItems.count(elem =>
         elem.sameItem(droppedItems.head)
@@ -140,7 +140,7 @@ sealed class ElectrolyzerBlock private ()
     }
 
     if (isBatterySet && isInputCorrect && isSameItemInput) {
-      val inputItem = itemList
+      val inputItem = listInventory
         .filterNot(elem => elem.isEmpty)
         .filterNot(elem => elem.getItem == Items.BUCKET)
         .head
@@ -153,8 +153,8 @@ sealed class ElectrolyzerBlock private ()
         )
 
       if (
-        ListInventory
-          .of(itemList.drop(10))
+        listInventory
+          .dropped(10)
           .canAddItems(
             electrolysisRecipe.getOutputItems(inputItem)
           )
@@ -163,15 +163,18 @@ sealed class ElectrolyzerBlock private ()
 
         if (currentProgress >= 6) {
           var newInventory = listInventory.copied
-
-          val damagedBattery = newInventory.asList(9).copy()
-          damagedBattery.addDamage()
-          newInventory = newInventory.updated(9, damagedBattery)
+            .updated(
+              9, {
+                val damagedBattery = listInventory.get(9).copy()
+                damagedBattery.addDamage()
+                damagedBattery
+              }
+            )
 
           updateState(p_60462_, p_60463_, p_60464_, 0, waterLevel)
 
           breakable {
-            newInventory.asList.dropRight(10).zipWithIndex.foreach {
+            newInventory.droppedRight(10).asList.zipWithIndex.foreach {
               case (itemStack: ItemStack, index: Int)
                   if !itemStack.isEmpty && itemStack.getItem != Items.BUCKET =>
                 val bucketItemStack = Items.BUCKET.toGeneralItemStack
@@ -181,15 +184,14 @@ sealed class ElectrolyzerBlock private ()
             }
           }
 
-          val newOutputInventory = ListInventory
-            .of(newInventory.asList.drop(10).map(_.copy()))
-            .addedAll(electrolysisRecipe.getOutputItems(inputItem))
-
-          newInventory = ListInventory.of(
-            newInventory.asList
-              .dropRight(9)
-              .appendedAll(newOutputInventory.asList)
-          )
+          newInventory = newInventory
+            .droppedRight(9)
+            .appended(
+              newInventory
+                .dropped(10)
+                .copied
+                .addedAll(electrolysisRecipe.getOutputItems(inputItem))
+            )
 
           blockEntity.setItems(NonNullList.of(null, newInventory.asList: _*))
         } else
