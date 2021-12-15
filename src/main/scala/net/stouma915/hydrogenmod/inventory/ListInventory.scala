@@ -59,8 +59,17 @@ class ListInventory private (items: List[ItemStack]) {
   def updated(index: Int, newItemStack: ItemStack): ListInventory =
     new ListInventory(items.updated(index, newItemStack))
 
+  def appended(suffix: ListInventory): ListInventory =
+    new ListInventory(items.appendedAll(suffix.asList))
+
   def added(itemStack: ItemStack): ListInventory =
     addedAll(List(itemStack))
+
+  def dropped(num: Int): ListInventory =
+    new ListInventory(items.drop(num))
+
+  def droppedRight(num: Int): ListInventory =
+    new ListInventory(items.dropRight(num))
 
   def addedAll(itemStacks: List[ItemStack]): ListInventory = {
     if (itemStacks.isEmpty)
