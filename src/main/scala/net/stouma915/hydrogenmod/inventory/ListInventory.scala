@@ -52,8 +52,6 @@ class ListInventory private (items: List[ItemStack]) {
 
   def foreach[U](func: ItemStack => U): Unit = items.foreach(func)
 
-  def toArray: Array[ItemStack] = items.toArray
-
   def copied: ListInventory = new ListInventory(items.map(_.copy()))
 
   def updated(index: Int, newItemStack: ItemStack): ListInventory =

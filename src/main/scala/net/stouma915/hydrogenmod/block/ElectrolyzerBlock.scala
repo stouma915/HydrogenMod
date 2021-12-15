@@ -191,7 +191,7 @@ sealed class ElectrolyzerBlock private ()
               .appendedAll(newOutputInventory.asList)
           )
 
-          blockEntity.setItems(NonNullList.of(null, newInventory.toArray: _*))
+          blockEntity.setItems(NonNullList.of(null, newInventory.asList: _*))
         } else
           updateState(
             p_60462_,
