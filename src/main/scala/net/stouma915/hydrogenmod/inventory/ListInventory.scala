@@ -14,15 +14,11 @@ object ListInventory {
     )
   }
 
-  def of(items: List[ItemStack]): ListInventory = {
-    val itemsToSet =
-      if (items.isEmpty)
-        List(Items.AIR.toGeneralItemStack)
-      else
-        items.map(_.copy())
-
-    new ListInventory(itemsToSet)
-  }
+  def of(items: List[ItemStack]): ListInventory =
+    if (items.isEmpty)
+      create(1)
+    else
+      new ListInventory(items)
 
 }
 
@@ -51,12 +47,12 @@ class ListInventory private (items: List[ItemStack]) {
   def contains(elem: ItemStack): Boolean =
     nonEmpty && items.exists(_.sameItem(elem))
 
+  def exists(predicate: ItemStack => Boolean): Boolean =
+    nonEmpty && items.exists(predicate)
+
   def nonEmpty: Boolean = !isEmpty
 
   def isEmpty: Boolean = items.forall(_.isEmpty)
-
-  def exists(predicate: ItemStack => Boolean): Boolean =
-    nonEmpty && items.exists(predicate)
 
   def find(predicate: ItemStack => Boolean): Option[ItemStack] =
     items.find(predicate)
@@ -74,6 +70,8 @@ class ListInventory private (items: List[ItemStack]) {
 
   def appended(suffix: ListInventory): ListInventory =
     ListInventory.of(items.appendedAll(suffix.asList))
+
+  def asList: List[ItemStack] = items
 
   def added(itemStack: ItemStack): ListInventory =
     addedAll(List(itemStack))
@@ -173,8 +171,6 @@ class ListInventory private (items: List[ItemStack]) {
       )
     )
   }
-
-  def asList: List[ItemStack] = items
 
   def dropped(num: Int): ListInventory =
     ListInventory.of(items.drop(num))
