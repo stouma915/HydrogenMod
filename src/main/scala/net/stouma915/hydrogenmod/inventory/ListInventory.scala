@@ -24,6 +24,8 @@ object ListInventory {
 
 class ListInventory private (items: List[ItemStack]) {
 
+  require(items.nonEmpty)
+
   def head: ItemStack = items.head
 
   def last: ItemStack = items.last
