@@ -55,10 +55,20 @@ sealed class ElectrolyzerMenu private[hydrogenmod] (
         new IllegalStateException("Couldn't get the inventory capability.")
       )
 
+  override def stillValid(p_38874_ : Player): Boolean = true
+
+  override def get(): Map[Int, Slot] = immutable.Map.from(customSlots)
+
+  private[gui] def getProgress: Int = {
+    val blockEntity = level.getBlockEntity(blockPos)
+    blockEntity.getBlockState.getValue(
+      ElectrolyzerBlock.ProgressProperty.asInstanceOf[Property[Nothing]]
+    )
+  }
+
   // format: off
   sealed trait CustomSlot(val mayPlace: ItemStack => Boolean):
     val index, x, y: Int
-
   case class InputSlot(index: Int, x: Int, y: Int) extends CustomSlot(_ => true)
   case class LimitedSlot(index: Int, x: Int, y: Int, _mayPlace: ItemStack => Boolean) extends CustomSlot(_mayPlace)
   case class OutputSlot(index: Int, x: Int, y: Int) extends CustomSlot(_ => false)
@@ -107,17 +117,6 @@ sealed class ElectrolyzerMenu private[hydrogenmod] (
   }
   (0 to 8).foreach { a =>
     addSlot(new Slot(inventory, a, 0 + 8 + a * 18, 0 + 142))
-  }
-
-  override def stillValid(p_38874_ : Player): Boolean = true
-
-  override def get(): Map[Int, Slot] = immutable.Map.from(customSlots)
-
-  private[gui] def getProgress: Int = {
-    val blockEntity = level.getBlockEntity(blockPos)
-    blockEntity.getBlockState.getValue(
-      ElectrolyzerBlock.ProgressProperty.asInstanceOf[Property[Nothing]]
-    )
   }
 
 }
