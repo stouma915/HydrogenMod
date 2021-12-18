@@ -31,7 +31,7 @@ package object implicits {
       itemStack.hurtAndBreak(
         itemStack.getMaxDamage,
         livingEntity,
-        (_: LivingEntity) => {}
+        _ => {}
       )
 
     def addDamage(): Unit =
