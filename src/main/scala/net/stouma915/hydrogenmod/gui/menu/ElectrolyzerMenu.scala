@@ -69,6 +69,7 @@ sealed class ElectrolyzerMenu private[hydrogenmod] (
   // format: off
   sealed trait CustomSlot(val mayPlace: ItemStack => Boolean):
     val index, x, y: Int
+
   case class InputSlot(index: Int, x: Int, y: Int) extends CustomSlot(_ => true)
   case class LimitedSlot(index: Int, x: Int, y: Int, _mayPlace: ItemStack => Boolean) extends CustomSlot(_mayPlace)
   case class OutputSlot(index: Int, x: Int, y: Int) extends CustomSlot(_ => false)
