@@ -182,7 +182,9 @@ class ListInventory private (items: List[ItemStack]) {
     canAddItems(List(itemToPlace))
 
   def canAddItems(itemsToPlace: List[ItemStack]): Boolean = {
-    if (itemsToPlace.isEmpty || isEmpty)
+    if (itemsToPlace.isEmpty)
+      return true
+    if (isEmpty && items.length >= itemsToPlace.length)
       return true
 
     val numberOfEmptySlot =
