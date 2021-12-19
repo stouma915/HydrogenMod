@@ -10,8 +10,6 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.entity.player.Inventory
 import net.stouma915.hydrogenmod.gui.menu.ElectrolyzerMenu
 
-import scala.collection.immutable.HashMap
-
 sealed class ElectrolyzerScreen private[gui] (
     container: ElectrolyzerMenu,
     inventory: Inventory,
