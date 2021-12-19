@@ -243,7 +243,7 @@ sealed class ElectrolyzerBlock private ()
 
     import scala.language.implicitConversions
 
-    implicit def convertTupleToBox(
+    implicit def implicitlyConvertTupleToBox(
         tuple: (Int, Int, Int, Int, Int, Int)
     ): VoxelShape = Block.box(
       tuple._1,
