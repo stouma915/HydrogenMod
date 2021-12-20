@@ -103,7 +103,7 @@ class ListInventory private (items: List[ItemStack]) {
 
     val result = for {
       afterAddUnstackable <- Some {
-        fillAirWithItems(unstackableItemsToPlace, asList.map(_.copy()))
+        fillAirWithItems(unstackableItemsToPlace, items.map(_.copy()))
       }
       itemsStackedToMax <- Some {
         stackableItemsToPlace.filter(elem =>
@@ -185,11 +185,10 @@ class ListInventory private (items: List[ItemStack]) {
     if (itemsToPlace.isEmpty || isEmpty)
       return true
 
-    val numberOfEmptySlot =
-      asList.count(_.isEmpty)
-    val unstackableItems = asList.filterNot(_.isStackable)
+    val numberOfEmptySlot = items.count(_.isEmpty)
+    val unstackableItems = items.filterNot(_.isStackable)
     val unstackableItemsToPlace = itemsToPlace.filterNot(_.isStackable)
-    val stackableItems = asList.filter(_.isStackable)
+    val stackableItems = items.filter(_.isStackable)
     val stackableItemsToPlace = itemsToPlace.filter(_.isStackable)
     
     // format: off
