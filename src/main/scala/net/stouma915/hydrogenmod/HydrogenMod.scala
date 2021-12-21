@@ -14,7 +14,7 @@ object HydrogenMod {
 }
 
 @Mod(HydrogenMod.ModId)
-class HydrogenMod {
+final class HydrogenMod {
 
   Seq(
     new BlockBreakListener,
