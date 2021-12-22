@@ -48,7 +48,7 @@ package object implicits {
 
   }
 
-  implicit class LivingEntityPos(livingEntity: LivingEntity) {
+  implicit class LivingEntityOps(livingEntity: LivingEntity) {
 
     def killWithCause(cause: DamageSource): Unit =
       livingEntity.hurt(cause, livingEntity.getMaxHealth)
