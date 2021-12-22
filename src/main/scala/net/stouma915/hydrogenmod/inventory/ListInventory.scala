@@ -208,31 +208,32 @@ class ListInventory private (items: List[ItemStack]) {
 
     if (unstackableItemsToPlace.isEmpty) {
       var count = 1
-      val bool = stackableItemsToPlace.forall { elem =>
-        val sameItems = stackableItems.filter(_.sameItem(elem))
-        if (sameItems.isEmpty) {
-          count += 1
-          if (numberOfEmptySlot >= count - 1)
-            true
-          else
-            false
-        } else {
-          if (
-            sameItems
-              .map(e => e.getMaxStackSize - e.getCount)
-              .sum >= elem.getCount
-          ) true
-          else {
+      Option.when {
+        stackableItemsToPlace.forall { elem =>
+          val sameItems = stackableItems.filter(_.sameItem(elem))
+          if (sameItems.isEmpty) {
             count += 1
             if (numberOfEmptySlot >= count - 1)
               true
-            else false
+            else
+              false
+          } else {
+            if (
+              sameItems
+                .map(e => e.getMaxStackSize - e.getCount)
+                .sum >= elem.getCount
+            ) true
+            else {
+              count += 1
+              if (numberOfEmptySlot >= count - 1)
+                true
+              else false
+            }
           }
         }
-      }
-
-      if (bool)
+      } {
         return true
+      }
     }
 
     if (unstackableItemsToPlace.nonEmpty && stackableItemsToPlace.nonEmpty) {
