@@ -16,7 +16,7 @@ object HydrogenHelmetArmorItem {
 
 }
 
-sealed class HydrogenHelmetArmorItem private ()
+final class HydrogenHelmetArmorItem private ()
     extends ArmorItem(
       HydrogenArmorMaterial(),
       EquipmentSlot.HEAD,

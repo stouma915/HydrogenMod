@@ -15,7 +15,7 @@ object OxygenArmorMaterial {
 
 }
 
-sealed class OxygenArmorMaterial private () extends ArmorMaterial {
+final class OxygenArmorMaterial private () extends ArmorMaterial {
 
   override def getDurabilityForSlot(p_40410_ : EquipmentSlot): Int =
     Int.MaxValue

@@ -15,7 +15,7 @@ object OxygenAxeItem {
 
 }
 
-sealed class OxygenAxeItem private ()
+final class OxygenAxeItem private ()
     extends AxeItem(
       OxygenTier(),
       1.0f,

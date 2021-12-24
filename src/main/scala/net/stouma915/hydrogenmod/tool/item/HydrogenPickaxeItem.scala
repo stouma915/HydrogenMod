@@ -15,7 +15,7 @@ object HydrogenPickaxeItem {
 
 }
 
-sealed class HydrogenPickaxeItem private ()
+final class HydrogenPickaxeItem private ()
     extends PickaxeItem(
       HydrogenTier(),
       1,

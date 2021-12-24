@@ -13,7 +13,7 @@ object ElectrolysisOfWater {
 
 }
 
-sealed class ElectrolysisOfWater private () extends ElectrolysisRecipe {
+final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
 
   override def isCorrectAsInput(inputItem: ItemStack): Boolean =
     inputItem.getItem == Items.WATER_BUCKET

@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.entity.player.Inventory
 import net.stouma915.hydrogenmod.gui.menu.ElectrolyzerMenu
 
-sealed class ElectrolyzerScreen private[gui] (
+final class ElectrolyzerScreen private[gui] (
     container: ElectrolyzerMenu,
     inventory: Inventory,
     text: Component

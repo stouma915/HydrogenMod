@@ -14,7 +14,7 @@ object OxygenWaterPotion {
 
 }
 
-sealed class OxygenWaterPotion private ()
+final class OxygenWaterPotion private ()
     extends Potion(
       new MobEffectInstance(OxygenWaterEffect(), 1200, 0, false, true)
     )

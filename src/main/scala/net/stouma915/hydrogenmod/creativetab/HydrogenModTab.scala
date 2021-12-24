@@ -13,7 +13,7 @@ object HydrogenModTab {
 
 }
 
-sealed class HydrogenModTab private ()
+final class HydrogenModTab private ()
     extends CreativeModeTab(HydrogenMod.ModId) {
 
   override def makeIcon(): ItemStack = HydrogenItem().toGeneralItemStack

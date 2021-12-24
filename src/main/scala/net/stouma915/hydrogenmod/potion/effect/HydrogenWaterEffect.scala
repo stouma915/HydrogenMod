@@ -12,5 +12,5 @@ object HydrogenWaterEffect {
 
 }
 
-sealed class HydrogenWaterEffect private ()
+final class HydrogenWaterEffect private ()
     extends MobEffect(MobEffectCategory.HARMFUL, -6684673)

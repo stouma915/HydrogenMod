@@ -38,7 +38,7 @@ object ElectrolyzerBlockEntity {
 
 }
 
-sealed class ElectrolyzerBlockEntity private[block] (
+final class ElectrolyzerBlockEntity private[block] (
     blockPos: BlockPos,
     blockState: BlockState
 ) extends RandomizableContainerBlockEntity(

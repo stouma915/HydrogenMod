@@ -15,7 +15,7 @@ object OxygenItem {
 
 }
 
-sealed class OxygenItem private ()
+final class OxygenItem private ()
     extends Item(
       new Properties()
         .tab(HydrogenModTab())

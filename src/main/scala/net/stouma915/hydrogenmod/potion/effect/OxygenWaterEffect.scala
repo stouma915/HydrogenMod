@@ -12,5 +12,5 @@ object OxygenWaterEffect {
 
 }
 
-sealed class OxygenWaterEffect private ()
+final class OxygenWaterEffect private ()
     extends MobEffect(MobEffectCategory.BENEFICIAL, -6684673)

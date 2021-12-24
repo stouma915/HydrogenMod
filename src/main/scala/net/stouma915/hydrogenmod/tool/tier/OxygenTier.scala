@@ -12,7 +12,7 @@ object OxygenTier {
 
 }
 
-sealed class OxygenTier private () extends Tier {
+final class OxygenTier private () extends Tier {
 
   override def getUses: Int = 50
 

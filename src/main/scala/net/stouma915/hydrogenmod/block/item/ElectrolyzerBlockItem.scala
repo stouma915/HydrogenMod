@@ -15,7 +15,7 @@ object ElectrolyzerBlockItem {
 
 }
 
-sealed class ElectrolyzerBlockItem private ()
+final class ElectrolyzerBlockItem private ()
     extends BlockItem(
       ElectrolyzerBlock(),
       new Properties().tab(HydrogenModTab())

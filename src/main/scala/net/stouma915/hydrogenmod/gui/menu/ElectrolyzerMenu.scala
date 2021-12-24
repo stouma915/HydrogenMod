@@ -35,7 +35,7 @@ object ElectrolyzerMenu {
 
 }
 
-sealed class ElectrolyzerMenu private[hydrogenmod] (
+final class ElectrolyzerMenu private[hydrogenmod] (
     id: Int,
     inventory: Inventory,
     extraData: FriendlyByteBuf

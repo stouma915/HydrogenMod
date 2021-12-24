@@ -11,7 +11,7 @@ object SuffocationDamageSource {
 
 }
 
-sealed class SuffocationDamageSource private ()
+final class SuffocationDamageSource private ()
     extends DamageSource(s"${HydrogenMod.ModId}_lack_of_oxygen") {
 
   override def isBypassArmor: Boolean = true

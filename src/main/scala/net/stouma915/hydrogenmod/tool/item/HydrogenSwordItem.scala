@@ -15,7 +15,7 @@ object HydrogenSwordItem {
 
 }
 
-sealed class HydrogenSwordItem private ()
+final class HydrogenSwordItem private ()
     extends SwordItem(
       HydrogenTier(),
       0,

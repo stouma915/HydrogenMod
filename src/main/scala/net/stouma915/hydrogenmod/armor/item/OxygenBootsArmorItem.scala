@@ -16,7 +16,7 @@ object OxygenBootsArmorItem {
 
 }
 
-sealed class OxygenBootsArmorItem private ()
+final class OxygenBootsArmorItem private ()
     extends ArmorItem(
       OxygenArmorMaterial(),
       EquipmentSlot.FEET,

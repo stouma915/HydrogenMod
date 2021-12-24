@@ -58,7 +58,7 @@ object ElectrolyzerBlock {
 
 }
 
-sealed class ElectrolyzerBlock private ()
+final class ElectrolyzerBlock private ()
     extends Block(
       Properties
         .of(Material.STONE)

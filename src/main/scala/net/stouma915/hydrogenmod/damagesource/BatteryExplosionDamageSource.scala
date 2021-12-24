@@ -11,7 +11,7 @@ object BatteryExplosionDamageSource {
 
 }
 
-sealed class BatteryExplosionDamageSource private ()
+final class BatteryExplosionDamageSource private ()
     extends DamageSource(s"${HydrogenMod.ModId}_battery_explosion") {
 
   override def isBypassArmor: Boolean = true

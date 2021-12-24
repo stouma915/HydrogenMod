@@ -15,7 +15,7 @@ object HydrogenAxeItem {
 
 }
 
-sealed class HydrogenAxeItem private ()
+final class HydrogenAxeItem private ()
     extends AxeItem(
       HydrogenTier(),
       1.0f,

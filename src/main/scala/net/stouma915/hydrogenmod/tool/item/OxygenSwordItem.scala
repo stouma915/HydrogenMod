@@ -15,7 +15,7 @@ object OxygenSwordItem {
 
 }
 
-sealed class OxygenSwordItem private ()
+final class OxygenSwordItem private ()
     extends SwordItem(
       OxygenTier(),
       0,

@@ -14,5 +14,5 @@ object MetalRodItem {
 
 }
 
-sealed class MetalRodItem private ()
+final class MetalRodItem private ()
     extends Item(new Properties().tab(HydrogenModTab()))

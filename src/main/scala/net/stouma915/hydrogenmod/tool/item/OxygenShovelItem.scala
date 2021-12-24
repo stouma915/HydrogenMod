@@ -15,7 +15,7 @@ object OxygenShovelItem {
 
 }
 
-sealed class OxygenShovelItem private ()
+final class OxygenShovelItem private ()
     extends ShovelItem(
       OxygenTier(),
       1.0f,

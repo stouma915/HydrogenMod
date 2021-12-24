@@ -16,7 +16,7 @@ object OxygenHelmetArmorItem {
 
 }
 
-sealed class OxygenHelmetArmorItem private ()
+final class OxygenHelmetArmorItem private ()
     extends ArmorItem(
       OxygenArmorMaterial(),
       EquipmentSlot.HEAD,

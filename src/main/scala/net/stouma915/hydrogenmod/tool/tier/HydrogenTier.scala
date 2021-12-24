@@ -12,7 +12,7 @@ object HydrogenTier {
 
 }
 
-sealed class HydrogenTier private () extends Tier {
+final class HydrogenTier private () extends Tier {
 
   override def getUses: Int = 50
 

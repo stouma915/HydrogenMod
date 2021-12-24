@@ -16,7 +16,7 @@ object OxygenLeggingsArmorItem {
 
 }
 
-sealed class OxygenLeggingsArmorItem private ()
+final class OxygenLeggingsArmorItem private ()
     extends ArmorItem(
       OxygenArmorMaterial(),
       EquipmentSlot.LEGS,

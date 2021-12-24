@@ -7,7 +7,7 @@ import net.stouma915.hydrogenmod.implicits.*
 import net.stouma915.hydrogenmod.item.OxygenItem
 import net.stouma915.hydrogenmod.potion.OxygenWaterPotion
 
-sealed class OxygenWaterBrewingRecipe extends IBrewingRecipe {
+final class OxygenWaterBrewingRecipe extends IBrewingRecipe {
 
   override def getOutput(input: ItemStack, ingredient: ItemStack): ItemStack =
     if (isInput(input) && isIngredient(ingredient))

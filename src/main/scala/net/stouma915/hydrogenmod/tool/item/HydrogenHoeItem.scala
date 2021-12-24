@@ -15,7 +15,7 @@ object HydrogenHoeItem {
 
 }
 
-sealed class HydrogenHoeItem private ()
+final class HydrogenHoeItem private ()
     extends HoeItem(
       HydrogenTier(),
       1,

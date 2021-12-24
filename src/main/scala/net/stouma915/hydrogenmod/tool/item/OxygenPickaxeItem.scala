@@ -15,7 +15,7 @@ object OxygenPickaxeItem {
 
 }
 
-sealed class OxygenPickaxeItem private ()
+final class OxygenPickaxeItem private ()
     extends PickaxeItem(
       OxygenTier(),
       1,
