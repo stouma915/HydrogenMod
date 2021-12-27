@@ -14,11 +14,16 @@ object ListInventory {
     )
   }
 
-  def of(items: List[ItemStack]): ListInventory =
+  def of(items: List[ItemStack], copy: Boolean = true): ListInventory =
     if (items.isEmpty)
       create(1)
     else
-      new ListInventory(items.map(_.copy()))
+      new ListInventory(
+        if (copy)
+          items.map(_.copy())
+        else
+          items
+      )
 
 }
 
