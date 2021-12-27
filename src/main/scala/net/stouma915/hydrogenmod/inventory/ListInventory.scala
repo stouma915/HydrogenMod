@@ -59,6 +59,8 @@ class ListInventory private (items: List[ItemStack]) {
 
   def nonEmpty: Boolean = !isEmpty
 
+  def isEmpty: Boolean = items.forall(_.isEmpty)
+
   def find(predicate: ItemStack => Boolean): Option[ItemStack] =
     items.find(predicate)
 
@@ -75,6 +77,8 @@ class ListInventory private (items: List[ItemStack]) {
 
   def appended(suffix: ListInventory): ListInventory =
     ListInventory.of(items.appendedAll(suffix.asList))
+
+  def asList: List[ItemStack] = items
 
   def added(itemStack: ItemStack): ListInventory =
     addedAll(List(itemStack))
@@ -174,8 +178,6 @@ class ListInventory private (items: List[ItemStack]) {
       )
     )
   }
-
-  def asList: List[ItemStack] = items
 
   def dropped(num: Int): ListInventory =
     ListInventory.of(items.drop(num))
@@ -281,7 +283,5 @@ class ListInventory private (items: List[ItemStack]) {
 
     false
   }
-
-  def isEmpty: Boolean = items.forall(_.isEmpty)
 
 }
