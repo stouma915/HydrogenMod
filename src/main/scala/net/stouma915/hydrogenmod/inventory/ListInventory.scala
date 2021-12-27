@@ -18,7 +18,7 @@ object ListInventory {
     if (items.isEmpty)
       create(1)
     else
-      new ListInventory(items)
+      new ListInventory(items.map(_.copy()))
 
 }
 
