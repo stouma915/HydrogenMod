@@ -19,7 +19,7 @@ class LivingDamageListener {
   def onLivingDamage(event: LivingDamageEvent): Unit =
     if (event.getSource.isFire) {
 
-      import EquipmentSlot.*
+      import EquipmentSlot._
 
       val helmet =
         event.getEntityLiving.getItemBySlot(HEAD).getItem
