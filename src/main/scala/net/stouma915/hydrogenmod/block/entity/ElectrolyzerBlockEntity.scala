@@ -56,7 +56,7 @@ final class ElectrolyzerBlockEntity private[block] (
     super.load(p_155080_)
     itemStacks = NonNullList.withSize(getContainerSize, ItemStack.EMPTY)
 
-    if (!tryLoadLootTable(p_155080_) && p_155080_.contains("Items"))
+    if (!tryLoadLootTable(p_155080_))
       ContainerHelper.loadAllItems(p_155080_, itemStacks)
   }
 
