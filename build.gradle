@@ -25,10 +25,9 @@ minecraft {
 
     runs {
         client {
-            workingDirectory project.file("run").canonicalPath
+            workingDirectory project.file('run')
 
-            property "forge.logging.markers", "REGISTRIES"
-            property "forge.logging.console.level", "debug"
+            property 'forge.logging.console.level', 'debug'
 
             mods {
                 hydrogenmod {
@@ -38,10 +37,25 @@ minecraft {
         }
 
         server {
-            workingDirectory project.file("run").canonicalPath
+            workingDirectory project.file('run')
 
-            property "forge.logging.markers", "REGISTRIES"
-            property "forge.logging.console.level", "debug"
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                hydrogenmod {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
                 hydrogenmod {
