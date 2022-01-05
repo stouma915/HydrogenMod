@@ -12,6 +12,6 @@ object ElectrolysisRecipeRegistry {
   def registerAll(recipes: ElectrolysisRecipe*): Unit =
     recipeList = recipeList.appendedAll(recipes)
 
-  private[hydrogenmod] def getAll: List[ElectrolysisRecipe] = recipeList
+  def getAll: List[ElectrolysisRecipe] = recipeList
 
 }
