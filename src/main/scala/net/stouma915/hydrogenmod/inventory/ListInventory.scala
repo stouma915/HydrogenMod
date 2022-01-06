@@ -170,13 +170,7 @@ class ListInventory private (items: List[ItemStack]) {
       }
     } yield afterAddOverflowingItems
 
-    ListInventory.of(
-      result.getOrElse(
-        throw new IllegalStateException(
-          "This should never happen: Failed to unwrap Option."
-        )
-      )
-    )
+    ListInventory.of(result.get)
   }
 
   def dropped(num: Int): ListInventory =
