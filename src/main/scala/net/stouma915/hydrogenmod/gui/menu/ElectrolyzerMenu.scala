@@ -3,7 +3,7 @@ package net.stouma915.hydrogenmod.gui.menu
 import net.minecraft.network.FriendlyByteBuf
 import net.minecraft.world.entity.player.{Inventory, Player}
 import net.minecraft.world.inventory.{MenuType, Slot}
-import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.{Item, ItemStack}
 import net.minecraft.world.level.block.state.properties.Property
 import net.minecraftforge.items.{CapabilityItemHandler, SlotItemHandler}
 import net.minecraftforge.network.IContainerFactory
@@ -71,7 +71,7 @@ final class ElectrolyzerMenu private[hydrogenmod] (
     val index, x, y: Int
 
   case class InputSlot(index: Int, x: Int, y: Int) extends CustomSlot(_ => true)
-  case class LimitedSlot(index: Int, x: Int, y: Int, _mayPlace: ItemStack => Boolean) extends CustomSlot(_mayPlace)
+  case class ItemSpecifiedSlot(index: Int, x: Int, y: Int, accept: Set[Item]) extends CustomSlot(s => accept.contains(s.getItem))
   case class OutputSlot(index: Int, x: Int, y: Int) extends CustomSlot(_ => false)
   // format: on
 
@@ -85,7 +85,7 @@ final class ElectrolyzerMenu private[hydrogenmod] (
     InputSlot(6, 21, 54),
     InputSlot(7, 39, 54),
     InputSlot(8, 57, 54),
-    LimitedSlot(9, 80, 18, _.getItem == BatteryItem()),
+    ItemSpecifiedSlot(9, 80, 18, Set(BatteryItem())),
     OutputSlot(10, 103, 18),
     OutputSlot(11, 121, 18),
     OutputSlot(12, 139, 18),
