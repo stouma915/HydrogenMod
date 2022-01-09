@@ -103,14 +103,8 @@ final class ElectrolyzerBlock private ()
       p_60464_ : BlockPos,
       p_60465_ : Random
   ): Unit = {
-    val blockEntity = p_60463_.getBlockEntity(p_60464_) match {
-      case entity: ElectrolyzerBlockEntity =>
-        entity
-      case _ =>
-        throw new IllegalStateException(
-          "Found something that was not electrolyzer."
-        )
-    }
+    val blockEntity =
+      p_60463_.getBlockEntity(p_60464_).asInstanceOf[ElectrolyzerBlockEntity]
     val listInventory =
       ListInventory.of(
         blockEntity.getItems.asScala.toList
