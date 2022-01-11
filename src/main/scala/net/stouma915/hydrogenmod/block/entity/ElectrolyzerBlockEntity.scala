@@ -48,22 +48,27 @@ final class ElectrolyzerBlockEntity private[block] (
     )
     with WorldlyContainer {
 
+  private val containerSize = 19
+
   private val handlers: Array[LazyOptional[IItemHandlerModifiable]] =
     SidedInvWrapper.create(this, Direction.values: _*)
-  private var itemStacks = NonNullList.withSize[ItemStack](19, ItemStack.EMPTY)
+  private var itemStacks = NonNullList
+    .withSize[ItemStack](containerSize, ItemStack.EMPTY)
 
   override def load(p_155080_ : CompoundTag): Unit = {
     super.load(p_155080_)
+
     itemStacks = NonNullList.withSize(getContainerSize, ItemStack.EMPTY)
 
     if (!tryLoadLootTable(p_155080_))
       ContainerHelper.loadAllItems(p_155080_, itemStacks)
   }
 
-  override def getContainerSize: Int = 19
+  override def getContainerSize: Int = containerSize
 
   override def saveAdditional(p_187461_ : CompoundTag): Unit = {
     super.saveAdditional(p_187461_)
+
     if (!trySaveLootTable(p_187461_))
       ContainerHelper.saveAllItems(p_187461_, itemStacks, false)
   }
