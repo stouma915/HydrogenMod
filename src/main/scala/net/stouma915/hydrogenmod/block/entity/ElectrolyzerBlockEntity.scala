@@ -110,6 +110,7 @@ final class ElectrolyzerBlockEntity private[block] (
 
   override def setRemoved(): Unit = {
     super.setRemoved()
+
     handlers.foreach(_.invalidate())
   }
 
