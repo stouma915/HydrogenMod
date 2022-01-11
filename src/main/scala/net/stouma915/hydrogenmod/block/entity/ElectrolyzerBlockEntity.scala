@@ -17,7 +17,7 @@ import net.minecraft.world.{ContainerHelper, WorldlyContainer}
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.util.LazyOptional
 import net.minecraftforge.items.wrapper.SidedInvWrapper
-import net.minecraftforge.items.{CapabilityItemHandler, IItemHandlerModifiable}
+import net.minecraftforge.items.CapabilityItemHandler
 import net.stouma915.hydrogenmod.HydrogenMod
 import net.stouma915.hydrogenmod.block.ElectrolyzerBlock
 import net.stouma915.hydrogenmod.gui.menu.ElectrolyzerMenu
@@ -50,8 +50,7 @@ final class ElectrolyzerBlockEntity private[block] (
 
   private val containerSize = 19
 
-  private val handlers: Array[LazyOptional[IItemHandlerModifiable]] =
-    SidedInvWrapper.create(this, Direction.values: _*)
+  private val handlers = SidedInvWrapper.create(this, Direction.values: _*)
   private var itemStacks = NonNullList
     .withSize[ItemStack](containerSize, ItemStack.EMPTY)
 
