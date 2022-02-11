@@ -21,6 +21,11 @@ jobs:
         cache: gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Avoid timestamp error
+      run: |
+        wget https://repo1.maven.org/maven2/org/typelevel/simulacrum-scalafix-annotations_3.0.0-M3/0.5.3/simulacrum-scalafix-annotations_3.0.0-M3-0.5.3.jar
+        mv simulacrum-scalafix-annotations_3.0.0-M3-0.5.3.jar simulacrum-scalafix-annotations_3-0.5.4.jar
+        cp simulacrum-scalafix-annotations_3-0.5.4.jar /home/runner/.gradle/caches/modules-2/files-2.1/org.typelevel/simulacrum-scalafix-annotations_3/0.5.4/e7ac3b68838b3905c9bdc4a870ec54a4bee2cf88/
     - name: Build
       run: bash gradlew build
     - name: Upload artifact
