@@ -83,9 +83,9 @@ sourceSets {
 }
 
 configurations {
-    embed
+    include
 
-    implementation.extendsFrom(embed)
+    implementation.extendsFrom(include)
 }
 
 repositories {
@@ -95,16 +95,16 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:1.18.1-39.0.40"
 
-    embed "org.scala-lang:scala3-library_3:3.1.1"
-    embed "org.typelevel:cats-effect_3:3.3.5"
+    include "org.scala-lang:scala3-library_3:3.1.1"
+    include "org.typelevel:cats-effect_3:3.3.5"
 }
 
 processResources {
-    configurations.embed.canBeResolved(true)
+    configurations.include.canBeResolved(true)
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-    from configurations.embed.collect {
+    from configurations.include.collect {
         it.isDirectory() ? it : zipTree(it)
     }
 }
