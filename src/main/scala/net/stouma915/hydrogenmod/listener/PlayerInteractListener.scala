@@ -25,20 +25,7 @@ class PlayerInteractListener {
 
     block match {
       case _: FireBlock =>
-        if (
-          Seq(
-            HydrogenItem(),
-            HydrogenBootsArmorItem(),
-            HydrogenChestplateArmorItem(),
-            HydrogenHelmetArmorItem(),
-            HydrogenLeggingsArmorItem(),
-            HydrogenSwordItem(),
-            HydrogenShovelItem(),
-            HydrogenPickaxeItem(),
-            HydrogenAxeItem(),
-            HydrogenHoeItem()
-          ).contains(itemInMainHand.getItem)
-        ) {
+        if (itemInMainHand.getItem.isHydrogenItem) {
           if (!event.getPlayer.isCreative && !event.getPlayer.isSpectator) {
             if (itemInMainHand.getItem.canDestroy)
               itemInMainHand.destroyItem(event.getEntityLiving)
