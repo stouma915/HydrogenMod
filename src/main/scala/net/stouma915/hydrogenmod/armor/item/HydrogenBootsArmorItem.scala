@@ -1,11 +1,9 @@
 package net.stouma915.hydrogenmod.armor.item
 
 import net.minecraft.world.entity.EquipmentSlot
-import net.minecraft.world.item.Item.Properties
-import net.minecraft.world.item.{ArmorItem, Item}
+import net.minecraft.world.item.Item
 import net.stouma915.hydrogenmod.HydrogenMod
-import net.stouma915.hydrogenmod.armor.material.HydrogenArmorMaterial
-import net.stouma915.hydrogenmod.creativetab.HydrogenModTab
+import net.stouma915.hydrogenmod.armor.implicits.defaultProperties
 
 object HydrogenBootsArmorItem {
 
@@ -17,8 +15,4 @@ object HydrogenBootsArmorItem {
 }
 
 final class HydrogenBootsArmorItem private ()
-    extends ArmorItem(
-      HydrogenArmorMaterial(),
-      EquipmentSlot.FEET,
-      new Properties().tab(HydrogenModTab())
-    )
+    extends HydrogenArmorItem(EquipmentSlot.FEET)
