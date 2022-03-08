@@ -10,4 +10,10 @@ trait NullChecks {
 
   }
 
+  implicit class AnyRefListOps[A <: AnyRef](anyRefList: List[A]) {
+
+    def hasNull: Boolean = anyRefList.exists(_.isNull)
+
+  }
+
 }
