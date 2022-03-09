@@ -31,19 +31,6 @@ final class ElectrolyzerScreen private[gui] (
     renderTooltip(poseStack, mouseX, mouseY)
   }
 
-  override def containerTick(): Unit =
-    super.containerTick()
-
-  override def onClose(): Unit = {
-    super.onClose()
-    Minecraft.getInstance.keyboardHandler.setSendRepeatsToGui(false)
-  }
-
-  override def init(): Unit = {
-    super.init()
-    minecraft.keyboardHandler.setSendRepeatsToGui(true)
-  }
-
   override protected def renderBg(
       poseStack: PoseStack,
       partialTicks: Float,
