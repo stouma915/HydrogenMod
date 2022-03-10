@@ -60,16 +60,15 @@ final class ElectrolyzerScreen private[gui] (
     )
 
     val progress = menu.getProgress
-    if (progress != 0)
-      blit(
-        poseStack,
-        x + 76,
-        y + 44,
-        176,
-        0,
-        progress * 4,
-        16
-      )
+    blit(
+      poseStack,
+      x + 76,
+      y + 44,
+      176,
+      0,
+      progress * 4,
+      16
+    )
   }
 
 }
