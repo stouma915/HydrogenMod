@@ -4,7 +4,7 @@ import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.item.{Item, ItemStack}
 import net.stouma915.hydrogenmod.HydrogenMod
 
-trait ItemImplicits {
+trait ItemSyntax {
 
   implicit class ItemOps(item: Item) {
 

@@ -1,6 +1,6 @@
 package net.stouma915.hydrogenmod.syntax
 
-trait NullChecks {
+trait NullCheckSyntax {
 
   implicit class AnyRefOps(anyRef: AnyRef) {
 

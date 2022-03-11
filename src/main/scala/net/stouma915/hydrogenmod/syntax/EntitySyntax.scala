@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.{Entity, LivingEntity}
 
-trait EntityImplicits {
+trait EntitySyntax {
 
   implicit class EntityOps(entity: Entity) {
 
