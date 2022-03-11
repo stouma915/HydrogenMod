@@ -1,4 +1,4 @@
-package net.stouma915.hydrogenmod.implicits
+package net.stouma915.hydrogenmod.syntax
 
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.item.{Item, ItemStack}

@@ -1,4 +1,4 @@
-package net.stouma915.hydrogenmod.implicits
+package net.stouma915.hydrogenmod.syntax
 
 import net.minecraft.core.BlockPos
 import net.minecraft.world.damagesource.DamageSource
