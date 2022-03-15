@@ -83,9 +83,9 @@ sourceSets {
 }
 
 configurations {
-    embed
+    includeInBin
 
-    implementation.extendsFrom(embed)
+    implementation.extendsFrom(includeInBin)
 }
 
 repositories {
@@ -94,15 +94,15 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:1.18.1-39.0.40"
-    embed "org.scala-lang:scala3-library_3:3.1.1"
+    includeInBin "org.scala-lang:scala3-library_3:3.1.1"
 }
 
 processResources {
-    configurations.embed.canBeResolved(true)
+    configurations.includeInBin.canBeResolved(true)
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-    from configurations.embed.collect {
+    from configurations.includeInBin.collect {
         it.isDirectory() ? it : zipTree(it)
     }
 }
