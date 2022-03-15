@@ -10,9 +10,9 @@ trait ItemSyntax {
 
     def canDestroy: Boolean = item.isDamageable(toGeneralItemStack)
 
-    def isHydrogenItem: Boolean = HydrogenMod.HydrogenItems.contains(item)
-
     def toGeneralItemStack: ItemStack = new ItemStack(item)
+
+    def isHydrogenItem: Boolean = HydrogenMod.HydrogenItems.contains(item)
 
   }
 

@@ -59,8 +59,6 @@ class ListInventory private (items: List[ItemStack]) {
 
   def nonEmpty: Boolean = !isEmpty
 
-  def isEmpty: Boolean = items.forall(_.isEmpty)
-
   def find(predicate: ItemStack => Boolean): Option[ItemStack] =
     items.find(predicate)
 
@@ -277,5 +275,7 @@ class ListInventory private (items: List[ItemStack]) {
 
     false
   }
+
+  def isEmpty: Boolean = items.forall(_.isEmpty)
 
 }

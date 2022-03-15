@@ -16,8 +16,8 @@ import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.{ContainerHelper, WorldlyContainer}
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.util.LazyOptional
-import net.minecraftforge.items.wrapper.SidedInvWrapper
 import net.minecraftforge.items.CapabilityItemHandler
+import net.minecraftforge.items.wrapper.SidedInvWrapper
 import net.stouma915.hydrogenmod.HydrogenMod
 import net.stouma915.hydrogenmod.block.ElectrolyzerBlock
 import net.stouma915.hydrogenmod.gui.menu.ElectrolyzerMenu
@@ -63,8 +63,6 @@ final class ElectrolyzerBlockEntity private[block] (
       ContainerHelper.loadAllItems(p_155080_, itemStacks)
   }
 
-  override def getContainerSize: Int = containerSize
-
   override def saveAdditional(p_187461_ : CompoundTag): Unit = {
     super.saveAdditional(p_187461_)
 
@@ -81,6 +79,8 @@ final class ElectrolyzerBlockEntity private[block] (
 
   override def getSlotsForFace(p_19238_ : Direction): Array[Int] =
     (0 to getContainerSize).toArray
+
+  override def getContainerSize: Int = containerSize
 
   override def canPlaceItemThroughFace(
       p_19235_ : Int,
