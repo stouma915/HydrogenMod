@@ -21,7 +21,7 @@ group = "net.stouma915.hydrogenmod"
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: "official", version: "1.18.2"
+    mappings channel: "official", version: "1.16.5"
 
     runs {
         client {
@@ -29,7 +29,6 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'hydrogenmod'
 
             mods {
                 hydrogenmod {
@@ -43,7 +42,6 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'hydrogenmod'
 
             mods {
                 hydrogenmod {
@@ -51,21 +49,6 @@ minecraft {
                 }
             }
         }
-
-        gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'hydrogenmod'
-
-            mods {
-                hydrogenmod {
-                    source sourceSets.main
-                }
-            }
-        }
-
 
         data {
             workingDirectory project.file('run')
@@ -111,7 +94,7 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.18.2-40.0.36"
+    minecraft "net.minecraftforge:forge:1.16.5-36.2.34"
     includeInBin "org.scala-lang:scala3-library_3:3.1.1"
 }
 
