@@ -15,19 +15,21 @@ buildscript {
 apply plugin: "scala"
 apply plugin: "net.minecraftforge.gradle"
 
-version = "1.1.4"
+version = "2.0.0"
 group = "net.stouma915.hydrogenmod"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: "official", version: "1.18.1"
+    mappings channel: "official", version: "1.18.2"
 
     runs {
         client {
             workingDirectory project.file('run')
 
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'hydrogenmod'
 
             mods {
                 hydrogenmod {
@@ -41,6 +43,7 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'hydrogenmod'
 
             mods {
                 hydrogenmod {
@@ -49,13 +52,28 @@ minecraft {
             }
         }
 
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'hydrogenmod'
+
+            mods {
+                hydrogenmod {
+                    source sourceSets.main
+                }
+            }
+        }
+
+
         data {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'hydrogenmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
                 hydrogenmod {
@@ -93,7 +111,7 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:1.18.1-39.0.40"
+    minecraft "net.minecraftforge:forge:1.18.2-40.0.36"
     includeInBin "org.scala-lang:scala3-library_3:3.1.1"
 }
 
