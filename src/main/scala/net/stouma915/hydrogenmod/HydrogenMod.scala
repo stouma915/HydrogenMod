@@ -20,6 +20,8 @@ final class HydrogenMod {
 
   private val eventBus = FMLJavaModLoadingContext.get.getModEventBus
 
+  // region startup tasks
+
   private val registerItems: IO[Unit] = IO {
     Map(
       "hydrogen" -> HydrogenItem(),
@@ -33,6 +35,8 @@ final class HydrogenMod {
   private val registerEventBus: IO[Unit] = IO {
     HydrogenModRegistry.getAllRegistries.foreach(_.register(eventBus))
   }
+
+  // endregion
 
   private val program = for {
     _ <- registerItems
