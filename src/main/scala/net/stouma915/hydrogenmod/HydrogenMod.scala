@@ -21,9 +21,10 @@ final class HydrogenMod {
   private val eventBus = FMLJavaModLoadingContext.get.getModEventBus
 
   private val registerItems: IO[Unit] = IO {
-    Map {
-      "hydrogen" -> HydrogenItem()
-    }.foreach {
+    Map(
+      "hydrogen" -> HydrogenItem(),
+      "oxygen" -> OxygenItem()
+    ).foreach {
       case (itemId: String, item: Item) =>
         HydrogenModRegistry.ItemRegistry.register(itemId, () => item)
     }
