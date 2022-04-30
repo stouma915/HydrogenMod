@@ -2,5 +2,5 @@
   "itemGroup.hydrogenmod": "HydrogenMod",
   "item.hydrogenmod.hydrogen": "Hydrogen",
   "item.hydrogenmod.oxygen": "Oxygen",
-  "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered hydrogen explosion."
+  "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered a hydrogen explosion."
 }
