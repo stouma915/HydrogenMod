@@ -1,6 +1,5 @@
-build/
-
 .gradle/
 .idea/
 
+build/
 run/
