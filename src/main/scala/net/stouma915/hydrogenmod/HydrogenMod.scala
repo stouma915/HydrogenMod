@@ -22,7 +22,7 @@ final class HydrogenMod {
 
   // region startup tasks
 
-  private val registerItems: IO[Unit] = IO {
+  private val registerItems = IO {
     Map(
       "hydrogen" -> HydrogenItem(),
       "oxygen" -> OxygenItem()
@@ -32,17 +32,17 @@ final class HydrogenMod {
     }
   }
 
-  private val registerEventBus: IO[Unit] = IO {
+  private val registerEventBus = IO {
     HydrogenModRegistry.getAllRegistries.foreach(_.register(eventBus))
   }
 
-  // endregion
-
-  private val program = for {
+  private val startHydrogenMod = for {
     _ <- registerItems
     _ <- registerEventBus
   } yield ()
 
-  program.unsafeRunSync()
+  // endregion
+
+  startHydrogenMod.unsafeRunSync()
 
 }
