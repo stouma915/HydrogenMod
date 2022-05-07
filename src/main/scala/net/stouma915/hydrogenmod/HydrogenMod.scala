@@ -4,7 +4,7 @@ import cats.effect.IO
 import net.minecraft.item.Item
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
-import net.stouma915.hydrogenmod.init.HydrogenModRegistry
+import net.stouma915.hydrogenmod.init.HydrogenModRegistries
 import net.stouma915.hydrogenmod.item._
 
 object HydrogenMod {
@@ -28,12 +28,12 @@ final class HydrogenMod {
       "oxygen" -> OxygenItem()
     ).foreach {
       case (name: String, item: Item) =>
-        HydrogenModRegistry.ItemRegistry.register(name, () => item)
+        HydrogenModRegistries.ItemRegistry.register(name, () => item)
     }
   }
 
   private val registerEventBus = IO {
-    HydrogenModRegistry.getAllRegistries.foreach(_.register(eventBus))
+    HydrogenModRegistries.getAllRegistries.foreach(_.register(eventBus))
   }
 
   private val startHydrogenMod = for {
