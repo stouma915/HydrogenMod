@@ -11,13 +11,6 @@ object HydrogenMod {
 
   final val ModId = "hydrogenmod"
 
-}
-
-@Mod(HydrogenMod.ModId)
-final class HydrogenMod {
-
-  import cats.effect.unsafe.implicits.global
-
   private val eventBus = FMLJavaModLoadingContext.get.getModEventBus
 
   // region startup tasks
@@ -43,6 +36,13 @@ final class HydrogenMod {
 
   // endregion
 
-  startHydrogenMod.unsafeRunSync()
+}
+
+@Mod(HydrogenMod.ModId)
+final class HydrogenMod {
+
+  import cats.effect.unsafe.implicits.global
+
+  HydrogenMod.startHydrogenMod.unsafeRunSync()
 
 }
