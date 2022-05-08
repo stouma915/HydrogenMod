@@ -6,7 +6,7 @@ import net.stouma915.hydrogenmod.HydrogenMod
 private[hydrogenmod] object HydrogenModRegistries {
 
   final val BlockRegistry =
-    DeferredRegistry.create(ForgeRegistries.BLOCKS, HydrogenMod.ModId)
+    DeferredRegister.create(ForgeRegistries.BLOCKS, HydrogenMod.ModId)
 
   final val ItemRegistry =
     DeferredRegister.create(ForgeRegistries.ITEMS, HydrogenMod.ModId)
