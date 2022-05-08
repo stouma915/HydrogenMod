@@ -9,7 +9,7 @@ displayName = "HydrogenMod"
 displayURL = "https://github.com/stouma915/HydrogenMod"
 credits = "Idea by bikikiMK2, Programmed by stouma915, Block model by Blockbench"
 authors = "stouma915, bikikiMK2"
-description = "水素で遊ぼう"
+description = "Minecraftに水素を追加するMod"
 
 [[dependencies.hydrogenmod]]
 modId = "minecraft"
