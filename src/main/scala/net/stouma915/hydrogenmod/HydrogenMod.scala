@@ -8,6 +8,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import net.stouma915.hydrogenmod.block._
 import net.stouma915.hydrogenmod.init.HydrogenModRegistries
 import net.stouma915.hydrogenmod.item._
+import net.stouma915.hydrogenmod.item.block._
 
 object HydrogenMod {
 
@@ -27,7 +28,8 @@ object HydrogenMod {
   private val registerItems = IO {
     Map(
       "hydrogen" -> HydrogenItem(),
-      "oxygen" -> OxygenItem()
+      "oxygen" -> OxygenItem(),
+      "electrolyzer" -> ElectrolyzerBlockItem()
     ).foreach {
       case (name: String, item: Item) =>
         HydrogenModRegistries.ItemRegistry.register(name, () => item)
