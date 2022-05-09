@@ -1,6 +1,7 @@
 package net.stouma915.hydrogenmod.syntax
 
 import net.minecraft.item.{Item, ItemStack}
+import net.stouma915.hydrogenmod.HydrogenMod
 
 trait ItemSyntax {
 
