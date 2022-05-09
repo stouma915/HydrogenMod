@@ -1,3 +1,3 @@
 package net.stouma915.hydrogenmod.syntax
 
-trait AllSyntax extends ItemSyntax with NullCheckSyntax
+trait AllSyntax extends ItemStackSyntax with ItemSyntax with NullCheckSyntax
