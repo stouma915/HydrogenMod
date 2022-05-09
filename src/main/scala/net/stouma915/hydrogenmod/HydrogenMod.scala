@@ -11,6 +11,13 @@ object HydrogenMod {
 
   final val ModId = "hydrogenmod"
 
+  final lazy val HydrogenItems = Set(
+    HydrogenItem()
+  )
+  final lazy val OxygenItems = Set(
+    OxygenItem()
+  )
+
   private val eventBus = FMLJavaModLoadingContext.get.getModEventBus
 
   // region startup tasks
