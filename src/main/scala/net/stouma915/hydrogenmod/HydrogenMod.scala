@@ -39,7 +39,7 @@ object HydrogenMod {
       "electrolyzer" -> ElectrolyzerBlock()
     ).foreach {
       case (name: String, block: Block) =>
-        HydrogenModRegistries.BlockRegistry.registry(name, () => block)
+        HydrogenModRegistries.BlockRegistry.register(name, () => block)
     }
   }
 
