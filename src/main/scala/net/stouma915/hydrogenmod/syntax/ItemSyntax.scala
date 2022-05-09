@@ -9,7 +9,7 @@ trait ItemSyntax {
 
     def toGeneralItemStack: ItemStack = new ItemStack(item)
 
-    def isHydrogenItem: Boolean = 
+    def isHydrogenItem: Boolean =
       HydrogenMod.HydrogenItems.contains(item)
 
     def isOxygenItem: Boolean =
