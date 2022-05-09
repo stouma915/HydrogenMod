@@ -7,6 +7,8 @@ trait ItemStackSyntax {
 
   implicit class ItemStackOps(itemStack: ItemStack) {
 
+    import ItemSyntax._
+
     def toGeneralItemStack: ItemStack =
       itemStack.getItem.toGeneralItemStack
 
