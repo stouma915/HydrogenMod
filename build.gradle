@@ -84,9 +84,9 @@ sourceSets {
 }
 
 configurations {
-    includeInBin
+    includeInJar
 
-    implementation.extendsFrom(includeInBin)
+    implementation.extendsFrom(includeInJar)
 }
 
 repositories {
@@ -95,16 +95,16 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:1.16.5-36.2.34"
-    includeInBin "org.scala-lang:scala-library:2.13.8"
-    includeInBin "org.typelevel:cats-effect_2.13:3.3.11"
+    includeInJar "org.scala-lang:scala-library:2.13.8"
+    includeInJar "org.typelevel:cats-effect_2.13:3.3.11"
 }
 
 processResources {
-    configurations.includeInBin.canBeResolved(true)
+    configurations.includeInJar.canBeResolved(true)
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-    from configurations.includeInBin.collect {
+    from configurations.includeInJar.collect {
         it.isDirectory() ? it : zipTree(it)
     }
 }
