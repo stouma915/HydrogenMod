@@ -7,7 +7,7 @@ trait ItemStackSyntax {
 
   implicit class ItemStackOps(itemStack: ItemStack) {
 
-    import ItemSyntax._
+    import net.stouma915.hydrogenmod.syntax.ItemSyntax._
 
     def toGeneralItemStack: ItemStack =
       itemStack.getItem.toGeneralItemStack
