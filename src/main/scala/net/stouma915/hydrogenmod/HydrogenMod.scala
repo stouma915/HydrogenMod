@@ -1,9 +1,11 @@
 package net.stouma915.hydrogenmod
 
 import cats.effect.IO
+import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
+import net.stouma915.hydrogenmod.block._
 import net.stouma915.hydrogenmod.init.HydrogenModRegistries
 import net.stouma915.hydrogenmod.item._
 
@@ -32,12 +34,22 @@ object HydrogenMod {
     }
   }
 
+  private val registerBlocks = IO {
+    Map(
+      "electrolyzer" -> ElectrolyzerBlock()
+    ).foreach {
+      case (name: String, block: Block) =>
+        HydrogenModRegistries.BlockRegistry.registry(name, () => block)
+    }
+  }
+
   private val registerEventBus = IO {
     HydrogenModRegistries.getAllRegistries.foreach(_.register(eventBus))
   }
 
   private val startHydrogenMod = for {
     _ <- registerItems
+    _ <- registerBlocks
     _ <- registerEventBus
   } yield ()
 
