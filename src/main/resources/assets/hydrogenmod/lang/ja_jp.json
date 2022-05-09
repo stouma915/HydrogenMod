@@ -2,5 +2,6 @@
   "itemGroup.hydrogenmod": "水素Mod",
   "item.hydrogenmod.hydrogen": "水素",
   "item.hydrogenmod.oxygen": "酸素",
+    "block.hydrogenmod.electrolyzer": "電気分解装置",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$sは水素爆発に巻き込まれた"
 }
