@@ -1,4 +1,4 @@
-package  net.stouma915.hydrogenmod.syntax
+package net.stouma915.hydrogenmod.syntax
 
 import net.minecraft.item.ItemStack
 import net.stouma915.hydrogenmod.HydrogenMod
@@ -7,16 +7,14 @@ trait ItemStackSyntax {
 
   implicit class ItemStackOps(itemStack: ItemStack) {
 
-    import net.stouma915.hydrogenmod.syntax.ItemSyntax._
-
     def toGeneralItemStack: ItemStack =
-      itemStack.getItem.toGeneralItemStack
+      new ItemStack(itemStack.getItem)
 
-    def isHydrogenItem: Boolean = 
-      itemStack.getItem.isHydrogenItem
+    def isHydrogenItem: Boolean =
+      HydrogenMod.HydrogenItems.contains(itemStack.getItem)
 
     def isOxygenItem: Boolean =
-      itemStack.getItem.isOxygenItem
+      HydrogenMod.HydrogenItems.contains(itemStack.getItem)
 
   }
 
