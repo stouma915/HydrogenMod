@@ -6,30 +6,16 @@
     ]
   },
   "criteria": {
-    "has_hydrogen": {
+    "has_hydrogen_oxygen_and_bucket": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "item": "hydrogenmod:hydrogen"
-          }
-        ]
-      }
-    },
-    "has_oxygen": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
+          },
           {
             "item": "hydrogenmod:oxygen"
-          }
-        ]
-      }
-    },
-    "has_bucket": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
+          },
           {
             "item": "minecraft:bucket"
           }
@@ -45,9 +31,7 @@
   },
   "requirements": [
     [
-      "has_hydrogen",
-      "has_oxygen",
-      "has_bucket",
+      "has_hydrogen_oxygen_and_bucket",
       "has_the_recipe"
     ]
   ]
