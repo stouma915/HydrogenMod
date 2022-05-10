@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hydrogenmod:water_bucket"
+    ]
+  },
+  "criteria": {
+    "has_hydrogen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "hydrogenmod:hydrogen"
+          }
+        ]
+      }
+    },
+    "has_oxygen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "hydrogenmod:oxygen"
+          }
+        ]
+      }
+    },
+    "has_bucket": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:bucket"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hydrogenmod:water_bucket"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_hydrogen",
+      "has_oxygen",
+      "has_bucket",
+      "has_the_recipe"
+    ]
+  ]
+}
