@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hydrogenmod:hydrogen"
+    },
+    {
+      "item": "hydrogenmod:hydrogen"
+    },
+    {
+      "item": "hydrogenmod:oxygen"
+    },
+    {
+      "item": "hydrogenmod:oxygen"
+    }
+  ],
+  "result": {
+    "item": "hydrogenmod:hydrogen_peroxide"
+  }
+}
