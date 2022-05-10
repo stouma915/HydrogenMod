@@ -29,6 +29,7 @@ object HydrogenMod {
     Map(
       "hydrogen" -> HydrogenItem(),
       "oxygen" -> OxygenItem(),
+      "hydrogen_peroxide" -> HydrogenPeroxideItem(),
       "electrolyzer" -> ElectrolyzerBlockItem()
     ).foreach {
       case (name: String, item: Item) =>
