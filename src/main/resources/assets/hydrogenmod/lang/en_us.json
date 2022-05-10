@@ -1,6 +1,7 @@
 {
   "itemGroup.hydrogenmod": "HydrogenMod",
   "item.hydrogenmod.hydrogen": "Hydrogen",
+  "item.hydrogenmod.hydrogen_peroxide": "Hydrogen Peroxide",
   "item.hydrogenmod.oxygen": "Oxygen",
   "block.hydrogenmod.electrolyzer": "Electrolyzer",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered a hydrogen explosion"
