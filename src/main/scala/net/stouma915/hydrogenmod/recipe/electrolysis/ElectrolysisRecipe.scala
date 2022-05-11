@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack
 trait ElectrolysisRecipe {
 
   /***
-    * Returns true if inputItem is correct as an input item.
+    * Returns true if `inputItem` is correct as an input item.
     * Example: Water bucket
     *
     * @param inputItem input item
@@ -14,7 +14,7 @@ trait ElectrolysisRecipe {
   def isInputCorrect(inputItem: ItemStack): Boolean
 
   /***
-    * Items output as result of electrolysis.
+    * Items output as a result of electrolysis.
     * Example: 2x Hydrogen and 1x Oxygen
     *
     * @return output items
@@ -22,7 +22,7 @@ trait ElectrolysisRecipe {
   def outputItems: List[ItemStack]
 
   /***
-    * Item to be left in input slot after electrolysis is completed.
+    * The item to be left in Input Slot after electrolysis is completed.
     * Example: Empty bucket
     *
     * @return item to leave
