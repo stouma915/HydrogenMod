@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack
 
 trait ElectrolysisRecipe {
 
-  def inputItem: ItemStack
+  def isInputCorrect(itemStack: ItemStack): Boolean
 
   def outputItems: List[ItemStack]
 
