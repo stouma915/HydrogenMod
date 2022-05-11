@@ -6,11 +6,17 @@ import net.minecraft.item.Item
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import net.stouma915.hydrogenmod.block._
-import net.stouma915.hydrogenmod.init.HydrogenModRegistries
+import net.stouma915.hydrogenmod.init.{
+  ElectrolysisRecipeRegistry,
+  HydrogenModRegistries
+}
 import net.stouma915.hydrogenmod.item._
 import net.stouma915.hydrogenmod.item.block._
+import net.stouma915.hydrogenmod.recipe.electrolysis._
 
 object HydrogenMod {
+
+  import cats.effect.unsafe.implicits.global
 
   final val ModId = "hydrogenmod"
 
@@ -46,6 +52,12 @@ object HydrogenMod {
     }
   }
 
+  private val registerElectrolysisRecipes = IO {
+    Set(
+      ElectrolysisOfWater()
+    ).foreach(ElectrolysisRecipeRegistry.register(_).unsafeRunSync())
+  }
+
   private val registerEventBus = IO {
     HydrogenModRegistries.getAllRegistries.foreach(_.register(eventBus))
   }
@@ -53,6 +65,7 @@ object HydrogenMod {
   private val startHydrogenMod = for {
     _ <- registerItems
     _ <- registerBlocks
+    _ <- registerElectrolysisRecipes
     _ <- registerEventBus
   } yield ()
 
