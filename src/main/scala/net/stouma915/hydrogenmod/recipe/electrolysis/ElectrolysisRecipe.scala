@@ -11,7 +11,7 @@ trait ElectrolysisRecipe {
     * @param inputItem input item
     * @return correct or not
     */
-  def isInputCorrect(inputItem: ItemStack): Boolean
+  def isInputCorrect(inputItem: ItemStack): IO[Boolean]
 
   /***
     * Items output as a result of electrolysis.
@@ -20,7 +20,7 @@ trait ElectrolysisRecipe {
     * @param inputItem input item
     * @return output items
     */
-  def outputItems(inputItem: ItemStack): List[ItemStack]
+  def outputItems(inputItem: ItemStack): IO[List[ItemStack]]
 
   /***
     * The item to be left in Input Slot after electrolysis is completed.
@@ -29,6 +29,6 @@ trait ElectrolysisRecipe {
     * @param inputItem input item
     * @return item to leave
     */
-  def itemToLeave(inputItem: ItemStack): Option[ItemStack] = None
+  def itemToLeave(inputItem: ItemStack): IO[Option[ItemStack]] = None
 
 }
