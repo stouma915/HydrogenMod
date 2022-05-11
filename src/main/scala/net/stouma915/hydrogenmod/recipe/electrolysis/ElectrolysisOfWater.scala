@@ -18,7 +18,7 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
     inputItem.getItem eq Items.WATER_BUCKET
 
   override def outputItems(inputItem: ItemStack): List[ItemStack] =
-    if (inputItem eq Items.WATER_BUCKET)
+    if (isInputCorrect(inputItem))
       List(
         {
           val itemStack = HydrogenItem().toGeneralItemStack
