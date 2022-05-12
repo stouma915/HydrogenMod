@@ -20,8 +20,9 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
       inputItem.getItem eq Items.WATER_BUCKET
     }
 
-  override def outputItems(inputItem : ItemStack): IO[List[ItemStack]] =
+  override def outputItems(inputItem: ItemStack): IO[List[ItemStack]] =
     IO {
+      // avoid unused warning
       if (isInputCorrect(inputItem))
         List(
           {
