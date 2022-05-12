@@ -1,5 +1,6 @@
 package net.stouma915.hydrogenmod.recipe.electrolysis
 
+import cats.effect.IO
 import net.minecraft.item.{ItemStack, Items}
 import net.stouma915.hydrogenmod.implicits._
 import net.stouma915.hydrogenmod.item.{HydrogenItem, OxygenItem}
@@ -14,26 +15,32 @@ object ElectrolysisOfWater {
 
 final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
 
-  override def isInputCorrect(inputItem: ItemStack): Boolean =
-    inputItem.getItem eq Items.WATER_BUCKET
+  override def isInputCorrect(inputItem: ItemStack): IO[Boolean] =
+    IO {
+      inputItem.getItem eq Items.WATER_BUCKET
+    }
 
-  override def outputItems(inputItem : ItemStack): List[ItemStack] =
-    if (isInputCorrect(inputItem))
-      List(
-        {
-          val itemStack = HydrogenItem().toGeneralItemStack
-          itemStack.setCount(2)
-          itemStack
-        },
-        OxygenItem().toGeneralItemStack
-      )
-    else
-      List()
+  override def outputItems(inputItem : ItemStack): IO[List[ItemStack]] =
+    IO {
+      if (isInputCorrect(inputItem))
+        List(
+          {
+            val itemStack = HydrogenItem().toGeneralItemStack
+            itemStack.setCount(2)
+            itemStack
+          },
+          OxygenItem().toGeneralItemStack
+        )
+      else
+        List()
+    }
 
-  override def itemToLeave(inputItem: ItemStack): Option[ItemStack] =
-    if (inputItem eq Items.WATER_BUCKET)
-      Some(Items.BUCKET.toGeneralItemStack)
-    else
-      None
+  override def itemToLeave(inputItem: ItemStack): IO[Option[ItemStack]] =
+    IO {
+      if (inputItem eq Items.WATER_BUCKET)
+        Some(Items.BUCKET.toGeneralItemStack)
+      else
+        None
+    }
 
 }
