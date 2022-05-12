@@ -1,5 +1,6 @@
 package net.stouma915.hydrogenmod.recipe.electrolysis
 
+import cats.effect.IO
 import net.minecraft.item.ItemStack
 
 trait ElectrolysisRecipe {
