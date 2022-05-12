@@ -15,7 +15,6 @@ object ElectrolyzerBlockItem {
 final class ElectrolyzerBlockItem private ()
     extends BlockItem(
       ElectrolyzerBlock(),
-      new Item
-        .Properties()
+      new Item.Properties()
         .tab(HydrogenModTab())
     )

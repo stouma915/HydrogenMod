@@ -13,7 +13,6 @@ object ElectrolyzerBlock {
 
 final class ElectrolyzerBlock private ()
     extends Block(
-      AbstractBlock
-        .Properties
+      AbstractBlock.Properties
         .of(Material.STONE, MaterialColor.STONE)
     )
