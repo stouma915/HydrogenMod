@@ -2,10 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "hydrogenmod:hydrogen_helmet",
-      "hydrogenmod:hydrogen_chestplate",
-      "hydrogenmod:hydrogen_leggings",
-      "hydrogenmod:hydrogen_boots"
+      "hydrogenmod:hydrogen_helmet"
     ]
   },
   "criteria": {
@@ -22,10 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "hydrogenmod:hydrogen_helmet",
-        "recipe": "hydrogenmod:hydrogen_chestplate",
-        "recipe": "hydrogenmod:hydrogen_leggings",
-        "recipe": "hydrogenmod:hydrogen_boots"
+        "recipe": "hydrogenmod:hydrogen_helmet"
       }
     }
   },
