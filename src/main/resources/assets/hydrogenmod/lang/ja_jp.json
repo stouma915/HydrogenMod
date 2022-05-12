@@ -7,6 +7,10 @@
   "item.hydrogenmod.hydrogen_chestplate": "水素のチェストプレート",
   "item.hydrogenmod.hydrogen_leggings": "水素のレギンス",
   "item.hydrogenmod.hydrogen_boots": "水素のブーツ",
+  "item.hydrogenmod.oxygen_helmet": "酸素のヘルメット",
+  "item.hydrogenmod.oxygen_chestplate": "酸素のチェストプレート",
+  "item.hydrogenmod.oxygen_leggings": "酸素のレギンス",
+  "item.hydrogenmod.oxygen_boots": "酸素のブーツ",
   "block.hydrogenmod.electrolyzer": "電気分解装置",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$sは水素爆発に巻き込まれた"
 }
