@@ -30,6 +30,6 @@ trait ElectrolysisRecipe {
     * @param inputItem input item
     * @return item to leave
     */
-  def itemToLeave(inputItem: ItemStack): IO[Option[ItemStack]] = None
+  def itemToLeave(inputItem: ItemStack): IO[Option[ItemStack]] = IO.pure(None)
 
 }
