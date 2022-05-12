@@ -40,7 +40,7 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
 
   override def itemToLeave(inputItem: ItemStack): IO[Option[ItemStack]] =
     IO {
-      if (inputItem eq Items.WATER_BUCKET)
+      if (inputItem.getItem eq Items.WATER_BUCKET)
         Some(Items.BUCKET.toGeneralItemStack)
       else
         None
