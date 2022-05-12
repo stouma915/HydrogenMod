@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hydrogenmod:hydrogen_helmet",
+      "hydrogenmod:hydrogen_chestplate",
+      "hydrogenmod:hydrogen_leggings",
+      "hydrogenmod:hydrogen_boots"
+    ]
+  },
+  "criteria": {
+    "has_hydrogen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "hydrogenmod:hydrogen"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hydrogenmod:hydrogen_helmet",
+        "recipe": "hydrogenmod:hydrogen_chestplate",
+        "recipe": "hydrogenmod:hydrogen_leggings",
+        "recipe": "hydrogenmod:hydrogen_boots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_hydrogen",
+      "has_the_recipe"
+    ]
+  ]
+}
