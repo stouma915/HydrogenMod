@@ -15,6 +15,8 @@ object ElectrolysisOfWater {
 
 final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
 
+  import cats.effect.unsafe.implicits.global
+
   override def isInputCorrect(inputItem: ItemStack): IO[Boolean] =
     IO {
       inputItem.getItem eq Items.WATER_BUCKET
@@ -23,7 +25,7 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
   override def outputItems(inputItem: ItemStack): IO[List[ItemStack]] =
     IO {
       // to avoid unused warnings
-      if (isInputCorrect(inputItem))
+      if (isInputCorrect(inputItem).unsafeRunSync())
         List(
           {
             val itemStack = HydrogenItem().toGeneralItemStack
