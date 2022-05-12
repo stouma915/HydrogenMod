@@ -22,7 +22,7 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
 
   override def outputItems(inputItem: ItemStack): IO[List[ItemStack]] =
     IO {
-      // avoid unused warning
+      // to avoid unused warnings
       if (isInputCorrect(inputItem))
         List(
           {
