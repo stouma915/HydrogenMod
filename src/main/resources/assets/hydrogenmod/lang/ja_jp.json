@@ -3,6 +3,10 @@
   "item.hydrogenmod.hydrogen": "水素",
   "item.hydrogenmod.hydrogen_peroxide": "過酸化水素",
   "item.hydrogenmod.oxygen": "酸素",
+  "item.hydrogenmod.hydrogen_helmet": "水素のヘルメット",
+  "item.hydrogenmod.hydrogen_chestplate": "水素のチェストプレート",
+  "item.hydrogenmod.hydrogen_leggings": "水素のレギンス",
+  "item.hydrogenmod.hydrogen_boots": "水素のブーツ",
   "block.hydrogenmod.electrolyzer": "電気分解装置",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$sは水素爆発に巻き込まれた"
 }
