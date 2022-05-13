@@ -2,7 +2,6 @@ package net.stouma915.hydrogenmod.item.block
 
 import net.minecraft.item.{BlockItem, Item}
 import net.stouma915.hydrogenmod.block.ElectrolyzerBlock
-import net.stouma915.hydrogenmod.creativetab.HydrogenModTab
 
 object ElectrolyzerBlockItem {
 
@@ -16,5 +15,4 @@ final class ElectrolyzerBlockItem private ()
     extends BlockItem(
       ElectrolyzerBlock(),
       new Item.Properties()
-        .tab(HydrogenModTab())
     )

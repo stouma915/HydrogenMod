@@ -1,7 +1,6 @@
 package net.stouma915.hydrogenmod.item
 
 import net.minecraft.item.Item
-import net.stouma915.hydrogenmod.creativetab.HydrogenModTab
 
 object OxygenItem {
 
@@ -11,5 +10,4 @@ object OxygenItem {
 
 }
 
-final class OxygenItem private ()
-    extends Item(new Item.Properties().tab(HydrogenModTab()))
+final class OxygenItem private () extends Item(new Item.Properties())
