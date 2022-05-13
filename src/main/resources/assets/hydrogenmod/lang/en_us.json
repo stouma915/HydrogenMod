@@ -24,6 +24,9 @@
   "item.minecraft.potion.effect.hydrogen_water": "Hydrogen Water",
   "item.minecraft.splash_potion.effect.hydrogen_water": "Splash Hydrogen Water",
   "item.minecraft.lingering_potion.effect.hydrogen_water": "Lingering Hydrogen Water",
+  "item.minecraft.potion.effect.oxygen_water": "Oxygen Water",
+  "item.minecraft.splash_potion.effect.oxygen_water": "Splash Oxygen Water",
+  "item.minecraft.lingering_potion.effect.oxygen_water": "Lingering Oxygen Water",
   "block.hydrogenmod.electrolyzer": "Electrolyzer",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered a hydrogen explosion"
 }

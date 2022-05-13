@@ -96,7 +96,8 @@ object HydrogenMod {
 
   private val registerPotions = IO {
     Map(
-      "hydrogen_water" -> HydrogenWaterPotion()
+      "hydrogen_water" -> HydrogenWaterPotion(),
+      "oxygen_water" -> OxygenWaterPotion()
     ).foreach {
       case (name: String, potion: Potion) =>
         HydrogenModRegistries.PotionRegistry.register(name, () => potion)
@@ -105,7 +106,8 @@ object HydrogenMod {
 
   private val registerBrewingRecipes = IO {
     Set(
-      HydrogenWaterRecipe()
+      HydrogenWaterRecipe(),
+      OxygenWaterRecipe()
     ).foreach(BrewingRecipeRegistry.addRecipe)
   }
 
