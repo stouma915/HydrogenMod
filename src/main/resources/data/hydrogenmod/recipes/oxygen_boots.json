@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "hydrogenmod:oxygen"
+    }
+  },
+  "result": {
+    "item": "hydrogenmod:oxygen_boots"
+  }
+}
