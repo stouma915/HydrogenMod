@@ -1,20 +1,17 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "hydrogenmod:recipes/root",
   "rewards": {
     "recipes": [
-      "hydrogenmod:hydrogen_peroxide"
+      "hydrogenmod:hydrogen_boots"
     ]
   },
   "criteria": {
-    "has_hydrogen_and_oxygen": {
+    "has_hydrogen": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "item": "hydrogenmod:hydrogen"
-          },
-          {
-            "item": "hydrogenmod:oxygen"
           }
         ]
       }
@@ -22,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "hydrogenmod:hydrogen_peroxide"
+        "recipe": "hydrogenmod:hydrogen_boots"
       }
     }
   },
   "requirements": [
     [
-      "has_hydrogen_and_oxygen",
+      "has_hydrogen",
       "has_the_recipe"
     ]
   ]

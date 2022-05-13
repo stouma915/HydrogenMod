@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "hydrogenmod:recipes/root",
   "rewards": {
     "recipes": [
       "hydrogenmod:water_bucket"
