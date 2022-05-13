@@ -13,6 +13,7 @@ import net.stouma915.hydrogenmod.init.{
 import net.stouma915.hydrogenmod.item._
 import net.stouma915.hydrogenmod.item.armor._
 import net.stouma915.hydrogenmod.item.block._
+import net.stouma915.hydrogenmod.item.tool._
 import net.stouma915.hydrogenmod.recipe.electrolysis._
 
 object HydrogenMod {
@@ -26,7 +27,8 @@ object HydrogenMod {
     HydrogenHelmetItem(),
     HydrogenChestplateItem(),
     HydrogenLeggingsItem(),
-    HydrogenBootsItem()
+    HydrogenBootsItem(),
+    HydrogenSwordItem()
   )
   final lazy val OxygenItems = Set(
     OxygenItem(),
@@ -53,7 +55,12 @@ object HydrogenMod {
       "oxygen_helmet" -> OxygenHelmetItem(),
       "oxygen_chestplate" -> OxygenChestplateItem(),
       "oxygen_leggings" -> OxygenLeggingsItem(),
-      "oxygen_boots" -> OxygenBootsItem()
+      "oxygen_boots" -> OxygenBootsItem(),
+      "hydrogen_sword" -> HydrogenSwordItem(),
+      "hydrogen_shovel" -> HydrogenShovelItem(),
+      "hydrogen_pickaxe" -> HydrogenPickaxeItem(),
+      "hydrogen_axe" -> HydrogenAxeItem(),
+      "hydrogen_hoe" -> HydrogenHoeItem()
     ).foreach {
       case (name: String, item: Item) =>
         HydrogenModRegistries.ItemRegistry.register(name, () => item)

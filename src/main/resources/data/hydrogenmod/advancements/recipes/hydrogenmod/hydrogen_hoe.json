@@ -1,0 +1,32 @@
+{
+  "parent": "hydrogenmod:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hydrogenmod:hydrogen_hoe"
+    ]
+  },
+  "criteria": {
+    "has_hydrogen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "hydrogenmod:hydrogen"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hydrogenmod:hydrogen_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_hydrogen",
+      "has_the_recipe"
+    ]
+  ]
+}

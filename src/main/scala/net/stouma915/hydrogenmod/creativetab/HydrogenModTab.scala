@@ -7,6 +7,7 @@ import net.stouma915.hydrogenmod.implicits._
 import net.stouma915.hydrogenmod.item._
 import net.stouma915.hydrogenmod.item.armor._
 import net.stouma915.hydrogenmod.item.block._
+import net.stouma915.hydrogenmod.item.tool._
 
 object HydrogenModTab {
 
@@ -22,7 +23,12 @@ object HydrogenModTab {
     OxygenHelmetItem(),
     OxygenChestplateItem(),
     OxygenLeggingsItem(),
-    OxygenBootsItem()
+    OxygenBootsItem(),
+    HydrogenSwordItem(),
+    HydrogenShovelItem(),
+    HydrogenPickaxeItem(),
+    HydrogenAxeItem(),
+    HydrogenHoeItem()
   )
 
   private val instance = new HydrogenModTab

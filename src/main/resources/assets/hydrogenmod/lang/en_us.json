@@ -11,6 +11,11 @@
   "item.hydrogenmod.oxygen_chestplate": "Oxygen Chestplate",
   "item.hydrogenmod.oxygen_leggings": "Oxygen Leggings",
   "item.hydrogenmod.oxygen_boots": "Oxygen Boots",
+  "item.hydrogenmod.hydrogen_sword": "Hydrogen Sword",
+  "item.hydrogenmod.hydrogen_shovel": "Hydrogen Shovel",
+  "item.hydrogenmod.hydrogen_pickaxe": "Hydrogen Pickaxe",
+  "item.hydrogenmod.hydrogen_axe": "Hydrogen Axe",
+  "item.hydrogenmod.hydrogen_hoe": "Hydrogen Hoe",
   "block.hydrogenmod.electrolyzer": "Electrolyzer",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered a hydrogen explosion"
 }
