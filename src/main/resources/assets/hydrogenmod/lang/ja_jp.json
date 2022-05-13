@@ -27,6 +27,10 @@
   "item.minecraft.potion.effect.oxygen_water": "酸素水",
   "item.minecraft.splash_potion.effect.oxygen_water": "スプラッシュ酸素水",
   "item.minecraft.lingering_potion.effect.oxygen_water": "残留酸素水",
+  "item.minecraft.potion.effect.hydrogen_peroxide_water": "過酸化水素水",
+  "item.minecraft.splash_potion.effect.hydrogen_peroxide_water": "スプラッシュ過酸化水素水",
+  "item.minecraft.lingering_potion.effect.hydrogen_peroxide_water": "残留過酸化水素水",
+  "effect.hydrogenmod.hydrogen_peroxide": "過酸化水素",
   "block.hydrogenmod.electrolyzer": "電気分解装置",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$sは水素爆発に巻き込まれた"
 }

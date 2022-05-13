@@ -3,7 +3,7 @@ package net.stouma915.hydrogenmod
 import cats.effect.IO
 import net.minecraft.block.Block
 import net.minecraft.item.Item
-import net.minecraft.potion.Potion
+import net.minecraft.potion.{Effect, Potion}
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
@@ -17,6 +17,7 @@ import net.stouma915.hydrogenmod.item.armor._
 import net.stouma915.hydrogenmod.item.block._
 import net.stouma915.hydrogenmod.item.tool._
 import net.stouma915.hydrogenmod.potion._
+import net.stouma915.hydrogenmod.potion.effect._
 import net.stouma915.hydrogenmod.recipe.brewing._
 import net.stouma915.hydrogenmod.recipe.electrolysis._
 
@@ -96,6 +97,7 @@ object HydrogenMod {
 
   private val registerPotions = IO {
     Map(
+      "hydrogen_peroxide_water" -> HydrogenPeroxideWaterPotion(),
       "hydrogen_water" -> HydrogenWaterPotion(),
       "oxygen_water" -> OxygenWaterPotion()
     ).foreach {
@@ -104,8 +106,18 @@ object HydrogenMod {
     }
   }
 
+  private val registerPotionEffects = IO {
+    Map(
+      "hydrogen_peroxide" -> HydrogenPeroxideEffect()
+    ).foreach {
+      case (name: String, effect: Effect) =>
+        HydrogenModRegistries.PotionEffectRegistry.register(name, () => effect)
+    }
+  }
+
   private val registerBrewingRecipes = IO {
     Set(
+      HydrogenPeroxideWaterRecipe(),
       HydrogenWaterRecipe(),
       OxygenWaterRecipe()
     ).foreach(BrewingRecipeRegistry.addRecipe)
@@ -125,6 +137,7 @@ object HydrogenMod {
     _ <- registerItems
     _ <- registerBlocks
     _ <- registerPotions
+    _ <- registerPotionEffects
     _ <- registerBrewingRecipes
     _ <- registerElectrolysisRecipes
     _ <- registerEventBus
