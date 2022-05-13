@@ -3,6 +3,7 @@ package net.stouma915.hydrogenmod
 import cats.effect.IO
 import net.minecraft.block.Block
 import net.minecraft.item.Item
+import net.minecraft.potion.Potion
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import net.stouma915.hydrogenmod.block._
@@ -14,6 +15,7 @@ import net.stouma915.hydrogenmod.item._
 import net.stouma915.hydrogenmod.item.armor._
 import net.stouma915.hydrogenmod.item.block._
 import net.stouma915.hydrogenmod.item.tool._
+import net.stouma915.hydrogenmod.potion._
 import net.stouma915.hydrogenmod.recipe.electrolysis._
 
 object HydrogenMod {
@@ -90,6 +92,15 @@ object HydrogenMod {
     }
   }
 
+  private val registerPotions = IO {
+    Map(
+      "hydrogen_water" -> HydrogenWaterPotion()
+    ).foreach {
+      case (name: String, potion: Potion) =>
+        HydrogenModRegistries.PotionRegistry.register(name, () => potion)
+    }
+  }
+
   private val registerElectrolysisRecipes = IO {
     Set(
       ElectrolysisOfWater()
@@ -103,6 +114,7 @@ object HydrogenMod {
   private val startHydrogenMod = for {
     _ <- registerItems
     _ <- registerBlocks
+    _ <- registerPotions
     _ <- registerElectrolysisRecipes
     _ <- registerEventBus
   } yield ()

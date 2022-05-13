@@ -21,6 +21,9 @@
   "item.hydrogenmod.oxygen_pickaxe": "Oxygen Pickaxe",
   "item.hydrogenmod.oxygen_axe": "Oxygen Axe",
   "item.hydrogenmod.oxygen_hoe": "Oxygen Hoe",
+  "item.minecraft.potion.effect.hydrogen_water": "Hydrogen Water",
+  "item.minecraft.splash_potion.effect.hydrogen_water": "Splash Hydrogen Water",
+  "item.minecraft.lingering_potion.effect.hydrogen_water": "Lingering Hydrogen Water",
   "block.hydrogenmod.electrolyzer": "Electrolyzer",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered a hydrogen explosion"
 }
