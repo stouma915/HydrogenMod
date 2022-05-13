@@ -29,7 +29,11 @@ object HydrogenMod {
     HydrogenBootsItem()
   )
   final lazy val OxygenItems = Set(
-    OxygenItem()
+    OxygenItem(),
+    OxygenHelmetItem(),
+    OxygenChestplateItem(),
+    OxygenLeggingsItem(),
+    OxygenBootsItem()
   )
 
   private val eventBus = FMLJavaModLoadingContext.get.getModEventBus
@@ -45,7 +49,11 @@ object HydrogenMod {
       "hydrogen_helmet" -> HydrogenHelmetItem(),
       "hydrogen_chestplate" -> HydrogenChestplateItem(),
       "hydrogen_leggings" -> HydrogenLeggingsItem(),
-      "hydrogen_boots" -> HydrogenBootsItem()
+      "hydrogen_boots" -> HydrogenBootsItem(),
+      "oxygen_helmet" -> OxygenHelmetItem(),
+      "oxygen_chestplate" -> OxygenChestplateItem(),
+      "oxygen_leggings" -> OxygenLeggingsItem(),
+      "oxygen_boots" -> OxygenBootsItem()
     ).foreach {
       case (name: String, item: Item) =>
         HydrogenModRegistries.ItemRegistry.register(name, () => item)
