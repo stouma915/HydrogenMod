@@ -28,14 +28,23 @@ object HydrogenMod {
     HydrogenChestplateItem(),
     HydrogenLeggingsItem(),
     HydrogenBootsItem(),
-    HydrogenSwordItem()
+    HydrogenSwordItem(),
+    HydrogenShovelItem(),
+    HydrogenPickaxeItem(),
+    HydrogenAxeItem(),
+    HydrogenHoeItem()
   )
   final lazy val OxygenItems = Set(
     OxygenItem(),
     OxygenHelmetItem(),
     OxygenChestplateItem(),
     OxygenLeggingsItem(),
-    OxygenBootsItem()
+    OxygenBootsItem(),
+    OxygenSwordItem(),
+    OxygenShovelItem(),
+    OxygenPickaxeItem(),
+    OxygenAxeItem(),
+    OxygenHoeItem()
   )
 
   private val eventBus = FMLJavaModLoadingContext.get.getModEventBus
@@ -60,7 +69,12 @@ object HydrogenMod {
       "hydrogen_shovel" -> HydrogenShovelItem(),
       "hydrogen_pickaxe" -> HydrogenPickaxeItem(),
       "hydrogen_axe" -> HydrogenAxeItem(),
-      "hydrogen_hoe" -> HydrogenHoeItem()
+      "hydrogen_hoe" -> HydrogenHoeItem(),
+      "oxygen_sword" -> OxygenSwordItem(),
+      "oxygen_shovel" -> OxygenShovelItem(),
+      "oxygen_pickaxe" -> OxygenPickaxeItem(),
+      "oxygen_axe" -> OxygenAxeItem(),
+      "oxygen_hoe" -> OxygenHoeItem()
     ).foreach {
       case (name: String, item: Item) =>
         HydrogenModRegistries.ItemRegistry.register(name, () => item)

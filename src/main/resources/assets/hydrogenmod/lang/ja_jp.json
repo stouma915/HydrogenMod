@@ -16,6 +16,11 @@
   "item.hydrogenmod.hydrogen_pickaxe": "水素のツルハシ",
   "item.hydrogenmod.hydrogen_axe": "水素の斧",
   "item.hydrogenmod.hydrogen_hoe": "水素のクワ",
+  "item.hydrogenmod.oxygen_sword": "酸素の剣",
+  "item.hydrogenmod.oxygen_shovel": "酸素のシャベル",
+  "item.hydrogenmod.oxygen_pickaxe": "酸素のツルハシ",
+  "item.hydrogenmod.oxygen_axe": "酸素の斧",
+  "item.hydrogenmod.oxygen_hoe": "酸素のクワ",
   "block.hydrogenmod.electrolyzer": "電気分解装置",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$sは水素爆発に巻き込まれた"
 }

@@ -28,7 +28,12 @@ object HydrogenModTab {
     HydrogenShovelItem(),
     HydrogenPickaxeItem(),
     HydrogenAxeItem(),
-    HydrogenHoeItem()
+    HydrogenHoeItem(),
+    OxygenSwordItem(),
+    OxygenShovelItem(),
+    OxygenPickaxeItem(),
+    OxygenAxeItem(),
+    OxygenHoeItem()
   )
 
   private val instance = new HydrogenModTab

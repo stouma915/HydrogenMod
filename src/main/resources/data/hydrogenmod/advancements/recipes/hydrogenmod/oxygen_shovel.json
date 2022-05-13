@@ -1,0 +1,32 @@
+{
+  "parent": "hydrogenmod:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hydrogenmod:oxygen_shovel"
+    ]
+  },
+  "criteria": {
+    "has_oxygen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "hydrogenmod:oxygen"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hydrogenmod:oxygen_shovel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_oxygen",
+      "has_the_recipe"
+    ]
+  ]
+}
