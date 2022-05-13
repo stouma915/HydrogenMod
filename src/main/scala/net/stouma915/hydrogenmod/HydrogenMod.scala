@@ -4,6 +4,7 @@ import cats.effect.IO
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.potion.Potion
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import net.stouma915.hydrogenmod.block._
@@ -16,6 +17,7 @@ import net.stouma915.hydrogenmod.item.armor._
 import net.stouma915.hydrogenmod.item.block._
 import net.stouma915.hydrogenmod.item.tool._
 import net.stouma915.hydrogenmod.potion._
+import net.stouma915.hydrogenmod.recipe.brewing._
 import net.stouma915.hydrogenmod.recipe.electrolysis._
 
 object HydrogenMod {
@@ -101,6 +103,12 @@ object HydrogenMod {
     }
   }
 
+  private val registerBrewingRecipes = IO {
+    Set(
+      HydrogenWaterRecipe()
+    ).foreach(BrewingRecipeRegistry.addRecipe)
+  }
+
   private val registerElectrolysisRecipes = IO {
     Set(
       ElectrolysisOfWater()
@@ -115,6 +123,7 @@ object HydrogenMod {
     _ <- registerItems
     _ <- registerBlocks
     _ <- registerPotions
+    _ <- registerBrewingRecipes
     _ <- registerElectrolysisRecipes
     _ <- registerEventBus
   } yield ()
