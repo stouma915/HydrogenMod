@@ -38,4 +38,8 @@ class ItemList private (items: List[ItemStack]) {
 
   def nonEmpty: Boolean = !isEmpty
 
+  def dropped(num: Int): ItemList = ItemList.of(items.drop(num))
+
+  def droppedRight(num: Int): ItemList = ItemList.of(items.dropRight(num))
+
 }
