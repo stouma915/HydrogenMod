@@ -14,4 +14,9 @@ class ItemList private (items: List[ItemStack]) {
   def appended(another: List[ItemStack]): ItemList =
     ItemList.of(items.appendedAll(another))
 
+  def appended(another: ItemList): ItemList =
+    appended(another.toList)
+
+  def toList: List[ItemStack] = items
+
 }
