@@ -42,4 +42,10 @@ class ItemList private (items: List[ItemStack]) {
 
   def droppedRight(num: Int): ItemList = ItemList.of(items.dropRight(num))
 
+  def filter(predicate: ItemStack => Boolean): ItemList =
+    ItemList.of(items.filter(predicate))
+
+  def filterNot(predicate: ItemStack => Boolean): ItemList =
+    ItemList.of(items.filterNot(predicate))
+
 }
