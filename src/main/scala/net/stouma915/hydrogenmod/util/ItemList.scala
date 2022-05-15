@@ -34,4 +34,8 @@ class ItemList private (items: List[ItemStack]) {
   def getOrElse[A >: ItemStack](index: Int, default: Int => A): A =
     items.applyOrElse(index, default)
 
+  def isEmpty: Boolean = length == 0 || items.forall(_.isEmpty)
+
+  def nonEmpty: Boolean = !isEmpty
+
 }
