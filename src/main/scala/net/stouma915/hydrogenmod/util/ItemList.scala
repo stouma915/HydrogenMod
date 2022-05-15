@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack
 object ItemList {
 
   def of(items: List[ItemStack]): ItemList =
-    new ItemList(items)
+    new ItemList(items.map(_.copy)
 
 }
 
