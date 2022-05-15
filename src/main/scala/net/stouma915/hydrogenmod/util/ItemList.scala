@@ -12,6 +12,6 @@ object ItemList {
 class ItemList private (items: List[ItemStack]) {
 
   def appended(another: List[ItemStack]): ItemList =
-    ItemList.of(items.appended(another))
+    ItemList.of(items.appendedAll(another))
 
 }
