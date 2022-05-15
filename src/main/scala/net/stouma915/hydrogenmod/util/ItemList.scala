@@ -17,6 +17,8 @@ class ItemList private (items: List[ItemStack]) {
   def appended(another: ItemList): ItemList =
     appended(another.toList)
 
+  def length: Int = items.length
+
   def toList: List[ItemStack] = items
 
 }
