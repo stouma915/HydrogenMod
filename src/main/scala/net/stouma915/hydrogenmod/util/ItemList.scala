@@ -11,14 +11,22 @@ object ItemList {
 
 class ItemList private (items: List[ItemStack]) {
 
-  def appended(another: List[ItemStack]): ItemList =
-    ItemList.of(items.appendedAll(another))
+  def head: ItemStack = items.head
 
-  def appended(another: ItemList): ItemList =
-    appended(another.toList)
+  def last: ItemStack = items.last
+
+  def headOption: Option[ItemStack] = items.headOption
+
+  def lastOption: Option[ItemStack] = items.lastOption
 
   def length: Int = items.length
 
   def toList: List[ItemStack] = items
+
+  def appended(suffix: List[ItemStack]): ItemList =
+    ItemList.of(items.appendedAll(suffix))
+
+  def appended(suffix: ItemList): ItemList =
+    appended(suffix.toList)
 
 }
