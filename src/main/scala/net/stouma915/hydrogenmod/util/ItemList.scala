@@ -29,4 +29,9 @@ class ItemList private (items: List[ItemStack]) {
   def appended(suffix: ItemList): ItemList =
     appended(suffix.toList)
 
+  def get(index: Int): ItemStack = items(index)
+
+  def getOrElse[A >: ItemStack](index: Int, default: Int => A): A =
+    items.applyOrElse(index, default)
+
 }
