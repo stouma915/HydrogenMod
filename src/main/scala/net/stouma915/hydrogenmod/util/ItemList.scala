@@ -1,11 +1,24 @@
 package net.stouma915.hydrogenmod.util
 
-import net.minecraft.item.ItemStack
+import net.minecraft.item.{Items, ItemStack}
+import net.stouma915.hydrogenmod.implicits._
 
 object ItemList {
 
   def of(items: List[ItemStack]): ItemList =
     new ItemList(items.map(_.copy))
+
+  def empty: ItemList = ItemList.of(List())
+
+  def create(size: Int): ItemList =
+    if (size < 0)
+      throw new IllegalArgumentException("The size must be 0 or more.")
+    else
+      ItemList.of(
+        (1 to size)
+          .map(_ => Items.AIR.toGeneralItemStack)
+          .toList
+      )
 
 }
 
