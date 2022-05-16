@@ -8,8 +8,6 @@ object ItemList {
   def of(items: List[ItemStack]): ItemList =
     new ItemList(items.map(_.copy))
 
-  def empty: ItemList = ItemList.of(List())
-
   def create(size: Int): ItemList =
     if (size < 0)
       throw new IllegalArgumentException("The size must be 0 or more.")
@@ -19,6 +17,8 @@ object ItemList {
           .map(_ => Items.AIR.toGeneralItemStack)
           .toList
       )
+
+  def empty: ItemList = create(0)
 
 }
 
