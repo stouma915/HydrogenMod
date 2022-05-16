@@ -25,8 +25,8 @@ class ItemList private (items: List[ItemStack]) {
 
   def copied: ItemList = ItemList.of(items)
 
-  def appended(itemStack: ItemStack): ItemList =
-    ItemList.of(items.appended(ItemStack))
+  def appended(suffix: ItemStack): ItemList =
+    ItemList.of(items.appended(suffix))
 
   def appendedAll(suffix: List[ItemStack]): ItemList =
     ItemList.of(items.appendedAll(suffix))
