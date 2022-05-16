@@ -5,8 +5,19 @@ import net.stouma915.hydrogenmod.implicits._
 
 object ItemList {
 
+  final val Air = Items.AIR.toGeneralItemStack
+
   def of(items: List[ItemStack]): ItemList =
-    new ItemList(items.map(_.copy))
+    new ItemList(
+      items
+        .map(_.copy)
+        .map { elem =>
+          if (elem.isNull)
+            Air
+          else
+            elem
+        }
+    )
 
   def create(size: Int): ItemList =
     if (size < 0)
@@ -14,7 +25,7 @@ object ItemList {
     else
       ItemList.of(
         (1 to size)
-          .map(_ => Items.AIR.toGeneralItemStack)
+          .map(_ => Air)
           .toList
       )
 
