@@ -23,7 +23,7 @@ class ItemList private (items: List[ItemStack]) {
 
   def toList: List[ItemStack] = items
 
-  def copied: ItemList = ItemList.of(items)
+  def copied: ItemList = ItemList.of(items.map(_.copy))
 
   def appended(suffix: ItemStack): ItemList =
     appendedAll(List(suffix))
