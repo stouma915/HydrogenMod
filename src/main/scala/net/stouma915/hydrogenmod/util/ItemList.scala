@@ -28,11 +28,11 @@ class ItemList private (items: List[ItemStack]) {
   def appended(suffix: ItemStack): ItemList =
     appendedAll(List(suffix))
 
-  def appendedAll(suffix: List[ItemStack]): ItemList =
-    ItemList.of(items.appendedAll(suffix))
-
   def appendedAll(suffix: ItemList): ItemList =
     appendedAll(suffix.toList)
+
+  def appendedAll(suffix: List[ItemStack]): ItemList =
+    ItemList.of(items.appendedAll(suffix))
 
   def get(index: Int): ItemStack = items(index)
 
