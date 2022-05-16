@@ -53,4 +53,25 @@ class ItemList private (items: List[ItemStack]) {
   def filterNot(predicate: ItemStack => Boolean): ItemList =
     ItemList.of(items.filterNot(predicate))
 
+  def map(func: ItemStack => ItemStack): ItemList =
+    ItemList.of(items.map(func))
+
+  def contains(elem: ItemStack): Boolean =
+    nonEmpty && items.contains(elem)
+
+  def exists(predicate: ItemStack => Boolean): Boolean =
+    nonEmpty && items.exists(predicate)
+
+  def find(predicate: ItemStack => Boolean): Option[ItemStack] =
+    items.find(predicate)
+
+  def forall(predicate: ItemStack => Boolean): Boolean = items.forall(predicate)
+
+  def foreach[U](func: ItemStack => U): Unit = items.foreach(func)
+
+  def count(predicate: ItemStack => Boolean): Int = items.count(predicate)
+
+  def updated(index: Int, another: ItemStack): ItemList =
+    ItemList.of(items.updated(index, another))
+
 }
