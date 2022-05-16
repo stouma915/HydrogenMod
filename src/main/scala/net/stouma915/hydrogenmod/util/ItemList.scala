@@ -34,6 +34,15 @@ class ItemList private (items: List[ItemStack]) {
   def appendedAll(suffix: List[ItemStack]): ItemList =
     ItemList.of(items.appendedAll(suffix))
 
+  def appendedHead(prefix: ItemStack): ItemList =
+    appendedHeadAll(List(prefix))
+
+  def appendedHeadAll(prefix: ItemList): ItemList =
+    appendedHeadAll(prefix.toList)
+
+  def appendedHeadAll(prefix: List[ItemStack]): ItemList =
+    ItemList.of(prefix).appendedAll(this)
+
   def get(index: Int): ItemStack = items(index)
 
   def getOrElse[A >: ItemStack](index: Int, default: Int => A): A =
