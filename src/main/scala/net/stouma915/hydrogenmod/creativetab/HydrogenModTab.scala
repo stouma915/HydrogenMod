@@ -44,7 +44,7 @@ object HydrogenModTab {
 
 final class HydrogenModTab private () extends ItemGroup(HydrogenMod.ModId) {
 
-  override def makeIcon(): ItemStack = HydrogenItem().toGeneralItemStack
+  override def makeIcon(): ItemStack = HydrogenItem().makeStack
 
   override def fillItemList(p_78018_1_ : NonNullList[ItemStack]): Unit = {
     p_78018_1_.clear()
