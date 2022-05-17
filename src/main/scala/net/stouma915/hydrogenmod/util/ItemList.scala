@@ -35,6 +35,8 @@ object ItemList {
 
 class ItemList private (items: List[ItemStack]) {
 
+  require(items.count(_.isNull) eq 0)
+
   def head: ItemStack = items.head
 
   def last: ItemStack = items.last
