@@ -8,10 +8,7 @@ import net.minecraftforge.common.brewing.BrewingRecipeRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
 import net.stouma915.hydrogenmod.block._
-import net.stouma915.hydrogenmod.init.{
-  ElectrolysisRecipeRegistry,
-  HydrogenModRegistries
-}
+import net.stouma915.hydrogenmod.init._
 import net.stouma915.hydrogenmod.item._
 import net.stouma915.hydrogenmod.item.armor._
 import net.stouma915.hydrogenmod.item.block._
