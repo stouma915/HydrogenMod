@@ -49,7 +49,7 @@ final class HydrogenModTab private () extends ItemGroup(HydrogenMod.ModId) {
   override def fillItemList(p_78018_1_ : NonNullList[ItemStack]): Unit = {
     p_78018_1_.clear()
 
-    HydrogenModTab.Items.map(_.toGeneralItemStack).foreach(p_78018_1_.add)
+    HydrogenModTab.Items.map(_.makeStack).foreach(p_78018_1_.add)
   }
 
 }
