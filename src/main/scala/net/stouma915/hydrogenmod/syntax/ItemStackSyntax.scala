@@ -7,7 +7,7 @@ trait ItemStackSyntax {
 
   implicit class ItemStackOps(itemStack: ItemStack) {
 
-    def toGeneralItemStack: ItemStack =
+    def makeStack: ItemStack =
       new ItemStack(itemStack.getItem)
 
     def isHydrogenItem: Boolean =
