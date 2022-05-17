@@ -16,6 +16,12 @@ trait ItemStackSyntax {
     def isOxygenItem: Boolean =
       HydrogenMod.HydrogenItems.contains(itemStack.getItem)
 
+　　 def setAmount(amount: Int): ItemStack = {
+      val copied = itemStack.copy
+      copied.setCount(amount)
+      copied
+    }
+
   }
 
 }
