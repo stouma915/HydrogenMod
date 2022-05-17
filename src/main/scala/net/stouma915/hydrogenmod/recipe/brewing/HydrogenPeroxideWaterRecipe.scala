@@ -29,7 +29,7 @@ final class HydrogenPeroxideWaterRecipe private () extends IBrewingRecipe {
   override def getOutput(input: ItemStack, ingredient: ItemStack): ItemStack =
     if (isInput(input) && isIngredient(ingredient))
       PotionUtils.setPotion(
-        input.toGeneralItemStack,
+        input.makeStack,
         HydrogenPeroxideWaterPotion()
       )
     else
