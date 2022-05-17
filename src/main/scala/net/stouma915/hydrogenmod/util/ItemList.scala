@@ -5,7 +5,7 @@ import net.stouma915.hydrogenmod.implicits._
 
 object ItemList {
 
-  final val Air = Items.AIR.toGeneralItemStack
+  final val Air = Items.AIR.makeStack
 
   def of(items: List[ItemStack]): ItemList =
     new ItemList(
