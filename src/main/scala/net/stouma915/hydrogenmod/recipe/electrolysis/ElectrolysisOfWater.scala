@@ -29,7 +29,7 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
         List(
           HydrogenItem()
             .makeStack
-            .setAmount(2)
+            .setAmount(2),
           OxygenItem()
             .makeStack
             .setAmount(1)
