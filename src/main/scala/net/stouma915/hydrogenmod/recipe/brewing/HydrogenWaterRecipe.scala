@@ -29,7 +29,7 @@ final class HydrogenWaterRecipe private () extends IBrewingRecipe {
   override def getOutput(input: ItemStack, ingredient: ItemStack): ItemStack =
     if (isInput(input) && isIngredient(ingredient))
       PotionUtils.setPotion(
-        input.toGeneralItemStack,
+        input.makeStack,
         HydrogenWaterPotion()
       )
     else
