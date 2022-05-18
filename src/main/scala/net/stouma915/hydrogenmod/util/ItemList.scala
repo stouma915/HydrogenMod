@@ -5,13 +5,13 @@ import net.stouma915.hydrogenmod.implicits._
 
 object ItemList {
 
-  final val Air = Items.AIR.makeStack
+  private val air = Items.AIR.makeStack
 
   def of(items: List[ItemStack]): ItemList =
     new ItemList(
       items
         .map(_.copy)
-        .map(_.ifNull(Air))
+        .map(_.ifNull(air))
     )
 
   def create(size: Int): ItemList =
@@ -20,7 +20,7 @@ object ItemList {
     else
       ItemList.of(
         (1 to size)
-          .map(_ => Air)
+          .map(_ => air)
           .toList
       )
 
