@@ -17,9 +17,8 @@ trait ItemStackSyntax {
       HydrogenMod.OxygenItems.contains(itemStack.getItem)
 
     def act(func: ItemStack => Unit): ItemStack = {
-      val copied = itemStack.copy
-      func(copied)
-      copied
+      func(itemStack)
+      itemStack
     }
 
   }
