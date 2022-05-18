@@ -29,10 +29,10 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
         List(
           HydrogenItem()
             .makeStack
-            .setAmount(2),
+            .act(_.setCount(2)),
           OxygenItem()
             .makeStack
-            .setAmount(1)
+            .act(_.setCount(1))
         )
       else
         List()
