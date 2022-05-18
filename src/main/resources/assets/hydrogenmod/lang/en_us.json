@@ -30,6 +30,7 @@
   "item.minecraft.potion.effect.hydrogen_peroxide_water": "Water of Hydrogen Peroxide",
   "item.minecraft.splash_potion.effect.hydrogen_peroxide_water": "Splash Water of Hydrogen Peroxide",
   "item.minecraft.lingering_potion.effect.hydrogen_peroxide_water": "Lingering Water of Hydrogen Peroxide",
+  "item.minecraft.tipped_arrow.effect.hydrogen_peroxide_water": "Arrow of Hydrogen Peroxide",
   "effect.hydrogenmod.hydrogen_peroxide": "Hydrogen Peroxide",
   "block.hydrogenmod.electrolyzer": "Electrolyzer",
   "death.attack.hydrogenmod_hydrogen_explosion": "%1$s suffered a hydrogen explosion"
