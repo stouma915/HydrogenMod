@@ -22,12 +22,6 @@ trait ItemStackSyntax {
       copied
     }
 
-    def setAmount(amount: Int): ItemStack = {
-      val copied = itemStack.copy
-      copied.setCount(amount)
-      copied
-    }
-
   }
 
 }
