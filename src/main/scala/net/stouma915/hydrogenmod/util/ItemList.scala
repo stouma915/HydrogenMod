@@ -11,12 +11,7 @@ object ItemList {
     new ItemList(
       items
         .map(_.copy)
-        .map { elem =>
-          if (elem.isNull)
-            Air
-          else
-            elem
-        }
+        .map(_.ifNull(Air))
     )
 
   def create(size: Int): ItemList =
