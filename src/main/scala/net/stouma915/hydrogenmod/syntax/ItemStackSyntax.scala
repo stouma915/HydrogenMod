@@ -16,11 +16,6 @@ trait ItemStackSyntax {
     def isOxygenItem: Boolean =
       HydrogenMod.OxygenItems.contains(itemStack.getItem)
 
-    def act(func: ItemStack => Unit): ItemStack = {
-      func(itemStack)
-      itemStack
-    }
-
   }
 
 }
