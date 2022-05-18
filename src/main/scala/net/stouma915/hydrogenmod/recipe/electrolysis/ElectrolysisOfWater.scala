@@ -5,6 +5,8 @@ import net.minecraft.item.{ItemStack, Items}
 import net.stouma915.hydrogenmod.implicits._
 import net.stouma915.hydrogenmod.item.{HydrogenItem, OxygenItem}
 
+import scala.util.chaining._
+
 object ElectrolysisOfWater {
 
   private val instance = new ElectrolysisOfWater
@@ -29,10 +31,10 @@ final class ElectrolysisOfWater private () extends ElectrolysisRecipe {
         List(
           HydrogenItem()
             .makeStack
-            .act(_.setCount(2)),
+            .tap(_.setCount(2)),
           OxygenItem()
             .makeStack
-            .act(_.setCount(1))
+            .tap(_.setCount(1))
         )
       else
         List()
