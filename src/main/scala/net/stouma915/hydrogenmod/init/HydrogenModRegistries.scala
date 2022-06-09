@@ -7,13 +7,10 @@ private[hydrogenmod] object HydrogenModRegistries {
 
   final val BlockRegistry =
     DeferredRegister.create(ForgeRegistries.BLOCKS, HydrogenMod.ModId)
-
   final val ItemRegistry =
     DeferredRegister.create(ForgeRegistries.ITEMS, HydrogenMod.ModId)
-
   final val PotionRegistry =
     DeferredRegister.create(ForgeRegistries.POTION_TYPES, HydrogenMod.ModId)
-
   final val PotionEffectRegistry =
     DeferredRegister.create(ForgeRegistries.POTIONS, HydrogenMod.ModId)
 
