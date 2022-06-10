@@ -17,7 +17,7 @@ trait ItemStackSyntax {
       HydrogenMod.OxygenItems.contains(itemStack.getItem)
 
     def isAir: Boolean =
-      itemStack.nonNull && itemStack.getItem eq Items.AIR
+      itemStack != null && itemStack.getItem eq Items.AIR
 
   }
 
