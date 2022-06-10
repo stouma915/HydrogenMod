@@ -1,6 +1,6 @@
 package net.stouma915.hydrogenmod.syntax
 
-import net.minecraft.item.ItemStack
+import net.minecraft.item.{Items, ItemStack}
 import net.stouma915.hydrogenmod.HydrogenMod
 
 trait ItemStackSyntax {
@@ -15,6 +15,9 @@ trait ItemStackSyntax {
 
     def isOxygenItem: Boolean =
       HydrogenMod.OxygenItems.contains(itemStack.getItem)
+
+    def isAir: Boolean =
+      itemStack.getItem eq Items.AIR
 
   }
 
