@@ -130,7 +130,7 @@ object HydrogenMod {
     HydrogenModRegistries.getAllRegistries.foreach(_.register(eventBus))
   }
 
-  private val startHydrogenMod = for {
+  private val startMod = for {
     _ <- registerItems
     _ <- registerBlocks
     _ <- registerPotions
@@ -149,6 +149,6 @@ final class HydrogenMod {
 
   import cats.effect.unsafe.implicits.global
 
-  HydrogenMod.startHydrogenMod.unsafeRunSync()
+  HydrogenMod.startMod.unsafeRunSync()
 
 }
